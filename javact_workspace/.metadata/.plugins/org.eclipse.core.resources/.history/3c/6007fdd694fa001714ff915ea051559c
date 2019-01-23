@@ -1,0 +1,4 @@
+
+public interface AgentTourisk extends Recherche, Superviseur, Afficheur{
+
+}

@@ -1,0 +1,190 @@
+JavAct version 1.5.3
+http://javact.org
+http://www.irit.fr/PERSONNEL/SMAC/arcangeli/JavAct_fr.html
+------------------
+
+JavAct est une bibliothèque Java pour la programmation d'applications concurrentes, réparties et mobiles. 
+Actuellement en cours de développement à l'IRIT, la plateforme JavAct s'appuie sur le modèle d'acteur. 
+Elle est portable et fonctionne sur réseau de stations de travail SUN sous Solaris. 
+JavAct a été conçu afin d'être minimal et maintenable à moindre frais,  et pour être exploitable par un programmeur Java "moyen" initié aux acteurs. 
+Dans sa version actuelle, JavAct s'appuie sur le SDK 1.4 et RMI ; il n'y a pas de préprocesseur et on peut utiliser tous les outils standard de l'environnement Java. 
+
+JavAct permet une programmation de haut niveau en Java standard en faisant abstraction des mécanismes de bas niveau (processus légers, synchronisation, JavaRMI, Corba, ...). 
+JavAct offre des mécanismes pour la création d'acteurs, leur changement d'interface, leur répartition et leur mobilité, les communications (locales ou distantes). 
+Les acteurs sont des objets actifs qui communiquent de manière asynchrone, et dont le comportement peut changer en cours d'exécution (interface non uniforme). 
+Les acteurs sont des entités autonomes naturellement mobiles, et la mobilité n'induit pas de modification sémantique. 
+La mobilité est "forte" mais limitée en pratique au moment du changement de comportement. JavAct permet, en outre, le mélange entre les styles objet et acteur. 
+
+Une application JavAct s'exécute sur un domaine constitué par un ensemble de places qui peut varier dynamiquement. 
+Une place est un site physique ou logique capable d'héberger des acteurs 
+(au besoin, on peut simuler la répartition en créant plusieurs places -machines virtuelles- sur le même site physique). 
+Le même programme JavAct est exploitable indifféremment dans un environnement réparti ou non. 
+L'allocation de ressources aux activités concurrentes est actuellement laissée à la charge de la machine virtuelle Java. 
+
+La version Delta est une version spéciale, permettant le changement dynamique de composants de manière
+transparente et automatique (en fonction de l'environnement) ainsi que par demande des acteurs ou des
+composants. La programmation des composants est également facilitée par la nouvelle architecture (accès via un
+Controleur à tous les autres composants, aux Behaviors...). Un acteur ne peut plus désormais modifier les
+composants d'un autre acteur dont il a la référence (propriété d'isolation par le Controleur).
+La simplification (suppression des fonctionnalités simulées) de la version Delta a conduit a la version 4.1. 
+
+La version 4.2 est l'évolution de la précédente, combinant corrections de bugs et améliorations. L'architecture est
+désormais plus cohérente (plus en composants), et l'interface utilisateur devrait être stabilisée. 
+
+La version 0.5.0 a pris un numéro de version supplémentaire (et un 0. en préfixe) pour marquer un changement de 
+syntaxe (certaines primitives ont changé de nom). Un tutoriel est désormais disponible.
+
+Les versions 0.5.1 et 0.5.2 sont des corrrections de bugs mineurs.
+
+La version 1.5.3 marque la stabilisation de la bibliothèque (+correction bugs mineurs).
+
+Contenu :
+---------
+
+- places.txt : liste de places joignables
+- awfullpolicy : description de la politique de sécurité, pour le lancement d'une JVM JavAct (Creator)
+
+- javact.jar : fichier compressé des classes de javact.
+
+- bin : contient les shells :
+ 
+			- build : compile l'application et crée un javact.jar. 
+			- javact : permet de lancer une application javact.
+			- javactc : permet de générer les messages à partir des interfaces et des rôles.
+			- javactvm : permet de lancer des créateurs javact.
+			
+- example : contient des examples d'applications JavAct.
+- javact : contient les sources de javact
+
+- README.TXT 	: manuel d'utilisation 
+
+- VERSIONS.TXT 	: fichier des évolutions des versions.
+
+- LGPL.TXT	: licence de distribution de JavAct (GNU LESSER GENERAL PUBLIC LICENSE)
+
+
+Installation :
+--------------
+voir le fichier README.TXT ou le tutoriel sur le site JavAct.
+(http://www.irit.fr/recherches/ISPR/IAM/JavAct.html)
+
+
+Evolutions :
+------------
+
+Version 1.5.3 (07/2007)
+- Correction de bugs (composant MoveCt)
+
+Version 0.5.2 (03/2007)
+- Correction de bugs (cycle de vie)
+- Messages plus clairs au lancement (creator), avertissements en cas de problèmes (places.txt ou politique de sécurité non spécifiés).
+- Ajout de l'interface Agent (au dessus de Actor) pour préparer la version 0.6 ;-)
+- Meilleure intégration du jar (Manifest) pour un lancement plus simple du creator.
+
+Version 0.5.1 (06/2004)
+---------------------
+- Correction de bugs dans le compilateur (messages avec tableaux en paramètres)
+
+
+Version 0.5.0 (12/2003)
+---------------------
+- Nettoyage du code, commentaires JavAdoc complétés
+- Correction de bugs : appels avec retour + retour d'un type Actor
+- StandAloneInt -> StandAlone dans javact.util
+- MoveCt déplacé dans javact.local et javact.rmi, modification de la synchro
+- Ajout de RunTimeExceptions : JavActException, SendException, CreateException,
+JSMSendException, et lancement de ces exceptions dans les composants associés
+- MessageForwarder est désormais une classe interne de Forwarder
+- Séparation de la primitive becomeon() en :
+	- become(Behavior)
+	- go(Place)
+	- 6 with(pour chaque JavActComponentInterface)
+- ActorImpl -> composant de réception ReceiveCt modifié
+- QuasiActorImpl -> composant cycle de vie LifeCycleCt modifié
+- Mise à jour du contrôleur (accesseurs, synchronisation...)
+- Role -> ActorProfile
+- BehaviorInterface -> BehaviorProfile
+- mySelf() -> ego()
+- adaptation des scripts d'installation
+
+Version 4.1 (6/2003) :
+----------------------
+
+- Reprise de la version 4 delta pour simplification (conservation de l'architecture des acteurs,
+désactivation du système d'écoute de l'environnement)
+
+- Correction de bugs : Behavior (initRef), MoveCt(place inaccessible), CreateCt(echec->null)
+Creator(modification du constructeur pour pouvoir le spécialiser)
+
+- myPlace() renvoie désormais le numéro de port en fin de chaine
+
+- introducion de la primitive become(Beh, Cpt1...cptn) pour la reconfiguration dynamique des acteurs
+
+- autoactivation des acteurs via la méthode "void run()" (interface StandAloneInt)
+
+- les lignes vides ou commencant par '#' dans les fichiers de places sont ignorées
+
+- modifications du compilateur JavAct :
+    - script d'appel simplifié (et portable !)
+    - correction de l'erreur de syntaxe dans le nom des messages synchrones avec une classe 
+      comme type de retour 
+    - diverses petites erreurs invisibles pour l'utilisateur ont été corrigées
+
+Version 4 Delta (2d semestre 2003) :
+------------------------------------
+
+- corrections de bugs (Creator, installeur...)
+
+- ajout de nouveaux composants Send, Move (Cryptage, tolérance aux déconnections...)
+
+- changement de l'architecture (Controler / Analyser) pour supporter le changement 
+dynamique des composants
+
+- ... cf.rapport de DEA PS 2003 - Sébastien Leriche
+
+
+Version 4 :
+-----------
+
+- nouvelle procédure d'installation ( shells du "bin" )
+
+- nouveau paquetage : javact.compiler
+
+- modifications de syntaxe des messages, appels avec retour
+
+- javact.anet est devenu javact.anet.rmi
+
+- ...
+
+
+Version 3.6 :
+-------------
+
+- rajout de la licence LGPL.
+
+- suppression du composant SuicideCt ( méthode suicide() reportée dans le composant BecomeCt ).
+
+- mise en forme du code suivant les conventions de codage de Sun ( suppression des étoiles dans les imports, javadoc complétés ).
+
+- changements des noms des paquetages : Abase en javact.abase, Alocal en javact.alocal, Anet en javact.anet et Messages en javact.messages.
+
+- changements de noms de classes : Actor en ActorImpl , RefActor en Actor et QuasiActor en QuasiActorImpl.
+ 
+
+Version 3.5 :
+-------------
+
+- réorganisations du code d' Actor - QuasiActor - Creator.
+
+- mise en place de getter-setter pour les composants de QuasiActor.
+
+- modification de DecideOn pour ajouter le numéro de port.
+
+Version 3.4 (6/2002) :
+----------------------
+
+- le terme RefActor remplace IntActor.
+
+- STD est mis en majuscule car final static.
+
+- création à distance : téléchargement automatique des classes applicatives

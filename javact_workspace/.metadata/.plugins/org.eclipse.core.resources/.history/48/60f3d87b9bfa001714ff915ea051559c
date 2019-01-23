@@ -1,0 +1,21 @@
+import org.javact.util.BehaviorProfile;
+
+public interface Recherche extends BehaviorProfile {
+ public void become(Superviseur beh); 
+ int position;
+ public Recherche Beh {
+	 itineraire = JavActProbe.probe(2000);
+	 position = 0;
+ }
+ public void run(){
+	 System.out.printf (" je suis sur" + myPlace());
+	 
+	 if(position==itineraire.length) {
+		 //à voir calculr la charge minimale
+		 go(min);
+		 become( new Superviseur Beh());
+	 }
+	 //charge cpu  ? cf bout de code : calculer le min de charge
+	 go(itineraire[position++]);
+ }
+}

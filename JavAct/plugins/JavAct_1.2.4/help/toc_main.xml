@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?NLS TYPE="org.eclipse.help.toc"?>
+
+<toc label="JavAct help content" topic="help/maintopic.html">
+	<link toc="help/toc.xml" />
+	<link toc="help/mu.xml" />
+</toc>

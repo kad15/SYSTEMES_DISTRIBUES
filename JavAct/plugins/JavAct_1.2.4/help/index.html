@@ -1,0 +1,2140 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<html><head><!--Converted with jLaTeX2HTML 2002 (1.62) JA patch-1.4
+patched version by:  Kenshi Muto, Debian Project.
+LaTeX2HTML 2002 (1.62),
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others --><title>JavAct v0.5.0</title>
+
+
+
+
+
+<meta name="description" content="JavAct v0.5.0">
+<meta name="keywords" content="tutoriel">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<meta name="Generator" content="jLaTeX2HTML v2002 JA patch-1.4">
+<meta http-equiv="Content-Style-Type" content="text/css">
+
+<link rel="STYLESHEET" href="index_fichiers/tutoriel.css"></head><body>
+<!--Navigation Panel-->
+<img alt="next_inactive" src="index_fichiers/nx_grp_g.png" align="bottom" border="0" height="24" width="81"> 
+<img alt="up" src="index_fichiers/up_g.png" align="bottom" border="0" height="24" width="26"> 
+<img alt="previous" src="index_fichiers/prev_g.png" align="bottom" border="0" height="24" width="63">   
+<br>
+<br><br>
+<!--End of Navigation Panel-->
+
+<p>
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+</p><div align="center">
+<b>Rapport IRIT/2004-5-R
+<br><br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<!-- MATH
+ $\framebox[0.9\textwidth][c]{
+	\parbox[ch]{0.9\textwidth}{\begin{center}		\huge {\bf {\textsc{JavAct}\xspace {} 0.5.0 : principes, installation, utilisation et développement d'applications\\}}
+	\end{center} }
+}$
+ -->
+<img src="index_fichiers/img3.png" alt="\framebox[0.9\textwidth][c]{
+\parbox[ch]{0.9\textwidth}{\begin{center}\huge {\b...
+...installation, utilisation et développement d'applications\\ }}
+\end{center} }
+}" align="middle" border="0" height="174" width="504">
+</b></div>
+<p>
+</p><div align="center"><b><br>
+<br>
+<br>
+J.-P. Arcangeli<img src="index_fichiers/img1.png" alt="$^{*}$" align="bottom" border="0" height="17" width="12">,
+<br>V. Hennebert<img src="index_fichiers/img2.png" alt="$^{**}$" align="bottom" border="0" height="17" width="19">,
+<br>S. Leriche<img src="index_fichiers/img1.png" alt="$^{*}$" align="bottom" border="0" height="17" width="12">,
+<br>F. Migeon<img src="index_fichiers/img1.png" alt="$^{*}$" align="bottom" border="0" height="17" width="12">,
+<br>M. Pantel<img src="index_fichiers/img2.png" alt="$^{**}$" align="bottom" border="0" height="17" width="19">
+<br><br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<font size="+2">Institut de Recherche en Informatique de Toulouse
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+</font></b></div>
+<p>
+</p><div align="center"><b></b><b>{arcangel, leriche, migeon}@irit.fr, {henneber, pantel}@enseeiht.fr
+<br><br>
+<br>
+<br>
+<font size="+1"><img src="index_fichiers/img1.png" alt="$^{*}$" align="bottom" border="0" height="17" width="12"> IRIT-UPS, 118 route de Narbonne 31062 Toulouse Cedex 4
+<br><img src="index_fichiers/img2.png" alt="$^{**}$" align="bottom" border="0" height="17" width="19"> IRIT-ENSEEIHT, 2 rue Camichel BP 7122 31071 Toulouse Cedex 7
+</font></b></div>
+<p>
+</p><div align="center"><b></b></div>
+
+	<br>
+
+<h2><a name="SECTION00010000000000000000">
+Sommaire</a>
+</h2>
+<!--Table of Contents-->
+
+<ul>
+<li><a name="tex2html75" href="http://www.irit.fr/recherches/ISPR/IAM/tutoriel_0/tutoriel.html">Principes généraux</a>
+<ul>
+<li><a name="tex2html76" href="http://www.irit.fr/recherches/ISPR/IAM/tutoriel_0/tutoriel.html#SECTION00021000000000000000">Introduction</a>
+</li><li><a name="tex2html77" href="http://www.irit.fr/recherches/ISPR/IAM/tutoriel_0/tutoriel.html#SECTION00022000000000000000">Les agents mobiles</a>
+</li><li><a name="tex2html78" href="http://www.irit.fr/recherches/ISPR/IAM/tutoriel_0/tutoriel.html#SECTION00023000000000000000">Les acteurs</a>
+</li></ul><br>
+</li><li><a name="tex2html79" href="http://www.irit.fr/recherches/ISPR/IAM/tutoriel_0/tutoriel.html#SECTION00030000000000000000">Installation</a>
+<ul>
+<li><a name="tex2html80" href="http://www.irit.fr/recherches/ISPR/IAM/tutoriel_0/tutoriel.html#SECTION00031000000000000000">Vérifions les pré-requis</a>
+</li><li><a name="tex2html81" href="http://www.irit.fr/recherches/ISPR/IAM/tutoriel_0/tutoriel.html#SECTION00032000000000000000">C'est parti !</a>
+</li><li><a name="tex2html82" href="http://www.irit.fr/recherches/ISPR/IAM/tutoriel_0/tutoriel.html#SECTION00033000000000000000">Organisation des fichiers</a>
+</li></ul><br>
+</li><li><a name="tex2html83" href="http://www.irit.fr/recherches/ISPR/IAM/tutoriel_0/tutoriel.html#SECTION00040000000000000000">Utilisation</a>
+<ul>
+<li><a name="tex2html84" href="http://www.irit.fr/recherches/ISPR/IAM/tutoriel_0/tutoriel.html#SECTION00041000000000000000">Lancement des systèmes d'accueil</a>
+</li><li><a name="tex2html85" href="http://www.irit.fr/recherches/ISPR/IAM/tutoriel_0/tutoriel.html#SECTION00042000000000000000">Exécution d'un programme</a>
+</li><li><a name="tex2html86" href="http://www.irit.fr/recherches/ISPR/IAM/tutoriel_0/tutoriel.html#SECTION00043000000000000000">Compilation de la bibliothèque</a>
+</li></ul><br>
+</li><li><a name="tex2html87" href="http://www.irit.fr/recherches/ISPR/IAM/tutoriel_0/tutoriel.html#SECTION00050000000000000000">Comment développer une application</a>
+<ul>
+<li><a name="tex2html88" href="http://www.irit.fr/recherches/ISPR/IAM/tutoriel_0/tutoriel.html#SECTION00051000000000000000">L'incontournable &lt;&lt;&nbsp;Hello World&nbsp;&gt;&gt;</a>
+</li><li><a name="tex2html89" href="http://www.irit.fr/recherches/ISPR/IAM/tutoriel_0/tutoriel.html#SECTION00052000000000000000">La cellule</a>
+</li><li><a name="tex2html90" href="http://www.irit.fr/recherches/ISPR/IAM/tutoriel_0/tutoriel.html#SECTION00053000000000000000">Le crible d'Eratosthène</a>
+</li><li><a name="tex2html91" href="http://www.irit.fr/recherches/ISPR/IAM/tutoriel_0/tutoriel.html#SECTION00054000000000000000">Un agent mobile de recherche d'information</a>
+</li><li><a name="tex2html92" href="http://www.irit.fr/recherches/ISPR/IAM/tutoriel_0/tutoriel.html#SECTION00055000000000000000">Remarques complémentaires</a>
+</li></ul><br>
+</li><li><a name="tex2html93" href="http://www.irit.fr/recherches/ISPR/IAM/tutoriel_0/tutoriel.html#SECTION00060000000000000000">Bibliographie</a>
+</li><li><a name="tex2html94" href="http://www.irit.fr/recherches/ISPR/IAM/tutoriel_0/tutoriel.html#SECTION00070000000000000000">Un exemple de message généré :
+JAMprint.java</a>
+</li><li><a name="tex2html95" href="http://www.irit.fr/recherches/ISPR/IAM/tutoriel_0/tutoriel.html#SECTION00080000000000000000">Un exemple de comportement généré :
+EmptyQuasiBehavior.java</a>
+</li><li><a name="tex2html96" href="http://www.irit.fr/recherches/ISPR/IAM/tutoriel_0/tutoriel.html#SECTION00090000000000000000">Primitives pour la programmation de comportements</a>
+<ul>
+<li><a name="tex2html97" href="http://www.irit.fr/recherches/ISPR/IAM/tutoriel_0/tutoriel.html#SECTION00091000000000000000">Création d'un acteur</a>
+</li><li><a name="tex2html98" href="http://www.irit.fr/recherches/ISPR/IAM/tutoriel_0/tutoriel.html#SECTION00092000000000000000">Envoi de message</a>
+</li><li><a name="tex2html99" href="http://www.irit.fr/recherches/ISPR/IAM/tutoriel_0/tutoriel.html#SECTION00093000000000000000">Changement de comportement</a>
+</li><li><a name="tex2html100" href="http://www.irit.fr/recherches/ISPR/IAM/tutoriel_0/tutoriel.html#SECTION00094000000000000000">Déplacement de l'acteur</a>
+</li><li><a name="tex2html101" href="http://www.irit.fr/recherches/ISPR/IAM/tutoriel_0/tutoriel.html#SECTION00095000000000000000">Localisation et auto-référence de l'acteur</a>
+</li><li><a name="tex2html102" href="http://www.irit.fr/recherches/ISPR/IAM/tutoriel_0/tutoriel.html#SECTION00096000000000000000">Adaptation des micro-composants</a>
+</li></ul><br>
+</li><li><a name="tex2html103" href="http://www.irit.fr/recherches/ISPR/IAM/tutoriel_0/tutoriel.html#SECTION000100000000000000000">À propos de ce document...</a>
+</li></ul>
+<!--End of Table of Contents-->
+<p>
+
+
+</p><p>
+J<small>AV</small>A<small>CT</small> est un intergiciel (ou <i>middleware</i>) Java pour la programmation d'applications concurrentes, réparties et mobiles [<a href="http://www.irit.fr/recherches/ISPR/IAM/tutoriel_0/tutoriel.html#amm01">AMM01</a>], développé par l'équipe IAM (Ingénierie des Applications Mobiles<a name="tex2html1" href="#foot207"><sup>1</sup></a>)
+de l'IRIT (Institut de Recherche en Informatique de Toulouse, France)
+et distribué sous forme de logiciel libre sous licence LGPL.
+</p><p>
+
+</p><p><br>
+J<small>AV</small>A<small>CT</small> fournit des
+mécanismes pour la programmation d'agents mobiles adaptables qui
+s'appuient sur les concepts d'acteur et d'implémentation ouverte<a name="tex2html2" href="#foot222"><sup>2</sup></a>. J<small>AV</small>A<small>CT</small> étend le paquetage <i>java.rmi</i> (RMI : <i>Remote Method Invocation</i><a name="tex2html3" href="#foot211"><sup>3</sup></a>)
+dont il utilise les mécanismes de passage d'objets en argument et
+d'exception, et l'adapte aux communications asynchrones au moyen d'un
+mécanisme de type <i>send-receive</i>. Outre l'abstraction par rapport à <i>java.rmi</i>, J<small>AV</small>A<small>CT</small> permet au programmeur de s'abstraire de la gestion de mécanismes de bas niveau tel les <i>threads</i>, leur ordonnancement et la synchronisation.
+
+</p><p>
+J<small>AV</small>A<small>CT</small> est une bibliothèque Java standard : son utilisation ne demande pas de traitement particulier au niveau du code source ou du <i>bytecode</i>, ni de modification de la machine virtuelle. Dans sa version actuelle, J<small>AV</small>A<small>CT</small> repose sur le <i>Software Development Kit 1.4</i><a name="tex2html4" href="#foot217"><sup>4</sup></a> (le <i>JRE 1.3</i> suffit pour l'exécution).
+
+</p><p>
+
+</p><p><br>
+Ce document explique comment développer une application au moyen de J<small>AV</small>A<small>CT</small> (version 0.5.0) et décrit :
+
+</p><ul>
+<li>les principes généraux sur lesquels s'appuie la bibliothèque (section 1) ;
+</li>
+<li>la procédure d'installation (section 2) ;
+</li>
+<li>l'utilisation de J<small>AV</small>A<small>CT</small> et l'exécution d'un programme (section 3) ;
+</li>
+<li>le processus de développement et les codes Java de différents exemples (section 4).
+</li>
+</ul>
+
+<p>
+
+</p><h1><a name="SECTION00020000000000000000">
+Principes généraux</a>
+</h1>
+
+<p>
+
+</p><h2><a name="SECTION00021000000000000000">
+Introduction</a>
+</h2>
+
+<p>
+Les réseaux à grande échelle, tel l'Internet, et les grilles de calcul
+ou de stockage donnent accès à des quantités de données, de services,
+de ressources logicielles et matérielles répartis. Dans un tel
+contexte, qui touche également l'informatique ominiprésente (<i>ubiquitous computing</i>)
+et l'informatique nomade, le développement et le déploiement
+d'applications demande des méthodes et des outils adaptés permettant de
+traiter les problèmes qui résultent de l'hétérogénéité (des données, du
+logiciel, du matériel), de la répartition des ressources et des
+utilisateurs, des volumes de données déplacés sur le réseau, de la
+concurrence, de la sécurité, etc. En particulier, les applications
+doivent faire face à de fortes variations des conditions d'exécution
+(capacités physiques des réseaux et des machines, disponibilité des
+composants) et il n'est pas possible de faire d'hypothèse sur la
+qualité des services requis ou rendus. Ainsi, les applications doivent
+être adaptables, si possible de manière dynamique. Dans ce cadre, les
+concepts d'agents, de mobilité, et d'implémentation ouverte semblent du
+plus grand intérêt.
+</p><p>
+
+</p><p><br>Les intergiciels «&nbsp;classiques&nbsp;» permettent aux
+développeurs de s'abstraire de certains aspects techniques, parfois
+complexes, liés à la répartition et aux opérations distantes.
+Cependant, dans le contexte du calcul réparti à grande échelle et de
+l'informatique mobile, il est nécessaire, lors du développement, de
+prendre en compte la qualité des services et de s'y adapter. Afin de
+limiter la complexité du développement et de la maintenance et de
+faciliter la construction d'applications robustes capables de s'adapter
+dynamiquement aux conditions d'exécution, nous proposons J<small>AV</small>A<small>CT</small>, un intergiciel de haut niveau à base d'agents mobiles adaptables.
+
+</p><p>
+
+</p><h2><a name="SECTION00022000000000000000">
+Les agents mobiles</a>
+</h2>
+
+<p>
+La programmation par agents mobiles est un paradigme de programmation
+des applications réparties, susceptible de compléter ou de se
+substituer à d'autres paradigmes plus classiques tel le passage de
+messages, l'appel de procédure à distance, l'invocation d'objet à
+distance, l'évaluation à distance [<a href="http://www.irit.fr/recherches/ISPR/IAM/tutoriel_0/tutoriel.html#fpv98">FPV98</a>,<a href="http://www.irit.fr/recherches/ISPR/IAM/tutoriel_0/tutoriel.html#bi02">BI02</a>]. Elle est d'un grand intérêt pour la mise en <img src="index_fichiers/img4.png" alt="\oe" align="bottom" border="0" height="9" width="15">uvre
+d'applications dont les performances varient en fonction de la
+disponibilité et de la qualité des services et des ressources, ainsi
+que du volume des données déplacées. Le concept d'agent mobile facilite
+en effet la mise en <img src="index_fichiers/img4.png" alt="\oe" align="bottom" border="0" height="9" width="15">uvre d'applications dynamiquement adaptables, et il offre un cadre générique [<a href="http://www.irit.fr/recherches/ISPR/IAM/tutoriel_0/tutoriel.html#chk94">CHK94</a>]
+pour le développement des applications réparties sur des réseaux de
+grande taille qui recouvrent des domaines administratifs multiples.
+</p><p>
+
+</p><h3><a name="SECTION00022100000000000000">
+Principes et avantages</a>
+</h3>
+
+<p>Un agent logiciel est une entité autonome capable de communiquer,
+disposant d'une connaissance partielle de ce qui l'entoure et d'un
+comportement privés, ainsi que d'une capacité d'exécution propre. Un
+agent agit pour le compte d'un tiers (un autre agent, un utilisateur)
+qu'il représente sans être obligatoirement connecté à celui-ci, réagit
+et interagit avec d'autres agents.
+</p><p>Un agent mobile peut se déplacer d'un site à un autre en cours
+d'exécution pour accéder à des données ou à des ressources. Il se
+déplace avec son code et ses données propres, mais aussi avec son état
+d'exécution. L'agent décide lui-même de manière autonome de ses
+mouvements. Ainsi, la mobilité est contrôlée par l'application
+elle-même, et non par le système d'exécution comme dans le cas de la
+migration de processus dans les systèmes opératoires.
+</p><p>En pratique, la mobilité d'agent permet de rapprocher client et
+serveur et en conséquence de réduire le nombre et le volume des
+interactions distantes (en les remplaçant par des interactions
+locales), de spécialiser des serveurs distants ou de déporter la charge
+de calcul d'un site à un autre. Une application construite à base
+d'agents mobiles peut se redéployer dynamiquement suivant un plan
+pré-établi ou en réaction à une situation particulière, afin par
+exemple d'améliorer la performance ou de satisfaire la tolérance aux
+pannes, de réduire le trafic sur le réseau, ou de suivre un composant
+matériel mobile. La mobilité du code offre un premier niveau de
+flexibilité aux applications. La décentralisation de la connaissance et
+du contrôle à travers les agents, et la proximité physique entre les
+agents et les ressources du système renforce la réactivité et les
+capacités d'adaptation.
+</p><p>
+
+</p><p><br>La mobilité ne se substitue pas aux capacités de
+communication des agents (la communication distante reste possible)
+mais les complète ; afin de satisfaire aux contraintes des réseaux de
+grande taille ou sans fil (latence, non permanence des liens de
+communication), les agents communiquent par messages asynchrones.
+</p><p>
+
+</p><h3><a name="SECTION00022200000000000000">
+Propriétés</a>
+</h3>
+
+<p>Le déplacement d'une unité en cours d'exécution d'une machine à une
+autre se heurte aux problèmes d'hétérogénéité des matériels et des
+logiciels. Les intergiciels destinés au développement d'applications
+réparties à grande échelle doivent permettre de s'en abstraire. Par
+ailleurs, ils doivent fournir les mécanismes permettant le déplacement
+des agents et la communication entre agents. En particulier, la
+communication doit (a priori) être insensible aux déplacements des
+agents : les messages à destination ou provenant d'un agent doivent
+être acheminés indépendamment des mouvements de cet agent.
+</p><p>La capacité de capture et de restauration de l'état d'exécution
+d'un agent, appelée mobilité forte, est un point critique. La mobilité
+faible représente la capacité pour un système de déplacer le code des
+agents accompagné seulement de données d'initialisation (et non de
+l'état complet). En fait, c'est essentiellement un problème
+d'abstraction et d'expressivité, lié à la manipulation des processus
+qui exécutent les agents, qui est posé : dans les systèmes à mobilité
+faible, c'est au programmeur de gérer lui-même le mécanisme de reprise.
+Cette propriété est liée (et parfois confondue) avec la capacité pour
+un agent de se déplacer à n'importe quel point de son exécution
+(mobilité <i>anytime</i>).
+
+</p><p>
+Un frein à l'utilisation réelle de cette technologie réside cependant
+dans les problèmes de sécurité qu'elle introduit. La mise en place
+d'une politique de sécurité peut demander, d'une part la protection des
+ressources et des données des machines hôtes (en limitant les droits
+d'accès et la consommation des ressources), et d'autre part, la
+préservation de l'intégrité et de la confidentialité des agents
+eux-mêmes et de leurs communications.
+</p><p>
+
+</p><p><br>
+La large diffusion de l'environnement Java (et l'utilisation courante des <i>applets</i>)
+a contribué à l'intérêt porté aux agents mobiles, de par les nombreux
+avantages offerts (machine virtuelle, sérialisation, invocation de
+méthode à distance, gestionnaires de sécurité, ...). Java ne permet
+cependant pas la capture de l'état d'exécution des <i>threads</i>, et
+par conséquent, l'état dans lequel le calcul sera repris à distance
+doit être explicitement programmé, ce qui réduit l'expressivité : cette
+propriété est appelée mobilité faible (il existe des solutions Java
+non-standard basées sur la modification de la machine virtuelle, ou un
+pré-traitement code source, ou une modification du <i>bytecode</i>).
+
+</p><p>
+
+</p><h2><a name="SECTION00023000000000000000">
+Les acteurs</a>
+</h2>
+
+<p>
+
+</p><h3><a name="SECTION00023100000000000000">
+Le modèle de calcul</a>
+</h3>
+
+<p>
+Les acteurs [<a href="http://www.irit.fr/recherches/ISPR/IAM/tutoriel_0/tutoriel.html#agh86">Agh86</a>]
+sont des entités anthropomorphes qui communiquent par messages. Au sein
+d'une communauté, un acteur est uniquement connu par sa référence. La
+communication est point à point, asynchrone, unilatérale et supposée
+sûre. Les messages reçus sont stockés dans une boîte aux lettres et
+traités en série (en exclusion mutuelle). Le comportement décrit la
+réaction de l'acteur à un message. Le comportement est privé : il
+contient les données et les fonctions de l'acteur, et constitue son
+état. L'acteur encapsule données et fonctions mais également une
+activité (fil d'exécution) unique qui les manipule. Un comportement
+d'acteur n'est donc, à un instant donné, traversé que par un fil
+d'exécution au plus (la synchronisation est implicite).
+</p><p>Lors du traitement d'un message, un acteur peut créer
+(dynamiquement) de nouveaux acteurs, envoyer des messages aux acteurs
+qu'il connaît, et changer de comportement c'est-à-dire définir son
+comportement pour le traitement du prochain message. Le changement de
+comportement est un mécanisme puissant d'évolution et d'adaptation
+individuelles. Il permet à un acteur de modifier dynamiquement son
+interface ; mais, en conséquence, il n'est pas possible de garantir
+dans tous les cas qu'un message envoyé pourra effectivement être traité
+par son destinataire. Cependant, pour le programmeur, le changement de
+comportement offre une alternative à la gestion de variables d'état et
+à l'utilisation de gardes, qui accroît l'expressivité. Programmer un
+acteur revient donc à programmer ses comportements, l'enchaînement des
+comportements étant décrit dans les comportements eux-mêmes.
+</p><p>
+
+</p><h3><a name="SECTION00023200000000000000">
+La validation des applications</a>
+</h3>
+
+<p>La capacité de changement de comportement introduit une difficulté
+particulière dans le contrôle des envois de messages. En effet, il est
+délicat de déterminer statiquement si un message envoyé à un acteur
+pourra effectivement être traité. C'est le problème des <i>messages orphelins</i> [<a href="http://www.irit.fr/recherches/ISPR/IAM/tutoriel_0/tutoriel.html#dp+00">DP+00</a>] :
+
+</p><p>
+
+</p><ul>
+<li>les orphelins de <i>sûreté</i> sont des messages que l'acteur ne
+peut pas prendre en compte, ou bien qu'il ne peut plus prendre en
+compte au moment où il doit les traiter (à cause par exemple d'un
+changement de comportement) ;
+</li>
+<li>les orphelins de <i>vivacité</i> sont des messages appartenant au
+potentiel de traitement de l'acteur, mais celui-ci est bloqué en
+attente d'un message préalable qu'il n'a pas reçu.
+</li>
+</ul>
+
+<p>
+
+</p><h4><a name="SECTION00023210000000000000">
+Exemple</a>
+</h4>Soit l'acteur dont l'automate des comportements est le suivant:
+
+<p>
+
+</p><p></p>
+<div align="center">
+<br>
+<img src="index_fichiers/img5.png" alt="\begin{graph}(4.3,0.8)(0.6,-0.4)
+\par\graphnodesize{0.8}
+\graphnodecolour{1}
+\...
+...[e]{$p$}[\autodistance{2.9}]
+\bowtext{etatE1}{etatE2}{0.1}{$m$}
+\par\end{graph}" align="bottom" border="0" height="24" width="187">
+<br>
+</div>
+
+<p>
+Si on lui envoie deux fois le message <img src="index_fichiers/img6.png" alt="$m$" align="bottom" border="0" height="16" width="20">, l'un des deux messages sera orphelin de sûreté. Si on lui envoie seulement le message <img src="index_fichiers/img7.png" alt="$p$" align="middle" border="0" height="30" width="13">, alors celui-ci sera orphelin de vivacité ; il ne pourra être traité tant qu'aucun message <img src="index_fichiers/img6.png" alt="$m$" align="bottom" border="0" height="16" width="20"> n'aura été envoyé à l'acteur.
+<br></p><p>
+
+</p><p>
+
+</p><h3><a name="SECTION00023300000000000000">
+La mobilité d'acteur</a>
+</h3>
+
+<p>L'idée de l'utilisation des acteurs pour la programmation
+d'applications concurrentes et réparties n'est pas neuve. Néanmoins,
+elle semble particulièrement pertinente dans le cadre du calcul réparti
+à grande échelle de par les propriétés qui distinguent les acteurs du
+modèle d'objet classique (encapsulation de l'activité, changement
+d'interface, communications asynchrones). D'une part, la communication
+par messages asynchrones est bien adaptée aux réseaux de grande taille,
+voire sans fil, où les communications synchrones sont trop difficiles
+et coûteuses à établir. D'autre part, l'autonomie d'exécution et
+l'autonomie comportementale favorisent l'intégration de mécanismes de
+mobilité et garantissent un certain niveau d'intégrité.
+</p><p>
+
+</p><p><br>La mobilité d'acteur peut être naturellement définie en se
+basant sur le traitement des messages en série et le changement de
+comportement, ainsi que sur la création dynamique et l'envoi de
+messages. Lors du changement de comportement (donc, entre deux
+messages), l'acteur se réduit d'une part au contenu de sa boîte aux
+lettres, et d'autre part au comportement défini pour le traitement du
+prochain message. Par nature, le comportement est une entité de
+première classe qui matérialise l'état et qui est manipulable par
+programme. Il est alors possible de créer à distance un autre acteur
+défini à partir du comportement. On obtient ainsi simplement une
+évolution de l'acteur d'origine à qui on peut faire suivre tous les
+messages qui étaient en attente. L'état est donc entièrement transporté
+(via le comportement) et restauré sans que le programmeur n'ait à
+développer de code spécifique pour cela. Ainsi, après migration,
+l'acteur peut poursuivre son activité à distance en bénéficiant des
+acquis résultant des traitements de messages précédents. La mobilité
+est ainsi différée au moment où l'acteur change de comportement.
+</p><p>
+
+</p><p><br>La communication entre acteurs étant supposée sûre, la
+mobilité pose le problème de l'acheminement des messages. Pour cela, on
+définit le protocole suivant (d'autres sont possibles) : l'acteur
+d'origine se transforme lors du déplacement en un <i>proxy</i>
+du nouvel acteur (distant) ; il ne traite plus les messages qu'il
+reçoit mais les transmet. Ainsi, l'acteur reste connu à son adresse
+d'origine qui demeure valide, et l'envoi de message reste possible à
+tout instant y compris pendant que l'acteur se déplace (les messages
+sont stockés au niveau de l'acteur d'origine, puis transmis quand le
+clone distant est opérationnel). D'autre part, les communications
+sortantes (émissions de messages) restent valides (pour cela, les
+références d'acteur doivent être visibles à travers le réseau). Le
+mécanisme de mobilité est donc transparent pour le système de
+communication (il reste cependant les problèmes de liaison avec les
+ressources et les fichiers ouverts). La multiplication des déplacements
+d'un acteur a alors pour effet de construire une chaîne de liens de
+poursuite à travers laquelle l'acteur mobile peut être localisé et les
+messages acheminés (en pratique, on peut optimiser ce mécanisme).
+</p><p>
+
+</p><p><br>Tout acteur est donc potentiellement mobile, et, ainsi
+définie, la mobilité n'altère pas la sémantique des programmes. On peut
+noter que les problèmes de cohérence de copies et de synchronisation
+que l'on rencontre quand on introduit la mobilité dans le modèle objet
+ne se posent pas ici du fait de l'unicité du fil d'exécution et de
+l'exclusion mutuelle sur le traitement des messages.
+</p><p>
+
+</p><h1><a name="SECTION00030000000000000000">
+Installation</a>
+</h1>
+
+<h2><a name="SECTION00031000000000000000">
+Vérifions les pré-requis</a>
+</h2>
+
+<p>
+J<small>AV</small>A<small>CT</small> est un logiciel développé en Java, il est donc nécessaire d'avoir un environnement Java correctement installé<a name="tex2html5" href="#foot445"><sup>5</sup></a>.
+La bibliothèque J<small>AV</small>A<small>CT</small>  peut être installée et les machines virtuelles J<small>AV</small>A<small>CT</small>  exécutées avec le JRE 1.3 minimum. Pour compiler des application J<small>AV</small>A<small>CT</small>  le JSDK 1.4 minimum est nécessaire. 
+
+</p><p>
+Il faut également avoir récupéré le programme d'installation et l'archive de la bibliothèque : <tt>installJavAct.class</tt> et <tt>JavActv050.jar</tt>. Ces fichiers sont disponibles sur le site de J<small>AV</small>A<small>CT</small> <a name="tex2html6" href="#foot423"><sup>6</sup></a>.
+
+</p><p>
+
+</p><h2><a name="SECTION00032000000000000000">
+C'est parti !</a>
+</h2>
+Le fichier <tt>installJavAct.class</tt> est un programme
+permettant une installation portable de la bibliothèque sur n'importe
+quel système où l'on a pu installer Java. Son usage est le suivant :
+<pre>    java installJavAct &lt;archive javact.jar&gt; &lt;répertoire de destination&gt;
+</pre> 
+où <tt>&lt;archive javact.jar&gt;</tt> est le chemin complet de l'archive de la bibliothèque (<tt>JavActv050.jar</tt>), 
+<br>et <tt>&lt;répertoire de destination&gt;</tt> le répertoire dans lequel vous souhaitez installer la bibliothèque. Un répertoire <tt>JavActv050</tt> sera construit dans le répertoire désigné.
+
+<br>
+<br><b>Exemple</b> - Dans le répertoire /home/leriche :
+<pre>    java installJavAct JavActv050.jar .
+
+    Installing javact from 'JavActv5.jar' to '/home/leriche/JavActv050'
+    [...]
+    Generating scripts... (platform=Linux)
+
+    javact is now correctly installed and configured.
+    To run, build, compile applications for javact, you can use the scripts in
+    '/home/leriche/JavActv050/bin'
+    [...]
+</pre>
+
+<p>
+Lors de cette étape, la bibliothèque est installée dans le répertoire <tt>JavActv050</tt>. Des scripts de lancement (cf. section suivante) sont générés en fonction de la plate-forme dans le sous-répertoire <tt>bin</tt>. 
+
+</p><p>
+
+</p><h4><a name="SECTION00032010000000000000">
+Remarques :<br></a>
+</h4><font size="-1">- Il est possible de préciser pour l'archive J<small>AV</small>A<small>CT</small>  une localisation plus complexe. Exemple de récupération depuis un site internet : <tt>java installJavAct http://noman.zerezo.com/JavActv050.jar .</tt> 
+<br>- Si aucun argument n'est fourni, le programme d'installation cherche le fichier <tt>JavActv050.jar</tt> dans le répertoire courant. S'il le  trouve, l'installation se fait dans le répertoire courant à partir de ce fichier.
+</font>
+<p>
+
+</p><p>
+
+</p><h2><a name="SECTION00033000000000000000">
+Organisation des fichiers</a>
+</h2>
+<pre>JavActv050
+
+  bin                            # contient les scripts d'exécution pour :
+    build                          # recompiler la bibliothèque  	
+    javact                         # lancer une application    
+    javactc                        # compiler une application
+    javactgen                      # générer les messages de l'application     
+    javactvm                       # lancer un système d'accueil  
+    installJavAct.java             # installer la bibliothèque sur un autre site
+	
+  doc                            # documentation 'javadoc' de la bibliothèque
+    [...]
+	
+  examples                       # exemples d'applications
+    net                            # fonctionnement en mode réparti         
+      [...]
+    local                          # fonctionnement en local
+      [...]
+			
+  javact                         # code source de la bibliothèque
+    compiler                       # générateur de messages  
+    lang                           # code principal	
+    local                          # code spécifique au fonctionnement local
+    net                            # code spécifique au fonctionnement réparti 
+    util                           # classes utiles, complémentaire de javact.lang
+	
+  awfullPolicy                   # exemple de politique de sécurité
+  javact.jar                     # code compilé de la bibliothèque
+  LGPL.TXT                       # licence LGPL de la bibliothèque
+  places.txt                     # exemple de fichier de places
+</pre>
+
+<p>
+
+</p><h1><a name="SECTION00040000000000000000">
+Utilisation</a>
+</h1>Maintenant que la bibliothèque est correctement installée, nous
+allons compiler et exécuter un exemple, le classique «&nbsp;Hello
+World&nbsp;» en mode réparti. Les commandes sont données au format Linux<a name="tex2html7" href="#foot550"><sup>7</sup></a>, mais grâce à la portabilité de Java, la façon de procéder est normalement identique pour d'autres systèmes<a name="tex2html8" href="#foot551"><sup>8</sup></a>. 
+
+<p>
+
+</p><p><br>
+
+</p><p>
+
+</p><h2><a name="SECTION00041000000000000000">
+Lancement des systèmes d'accueil</a>
+</h2>
+Pour exécuter une application J<small>AV</small>A<small>CT</small>  en mode réparti, il faut disposer d'un système d'accueil sur chacune des places<a name="tex2html9" href="#foot552"><sup>9</sup></a>
+potentiellement accessibles aux agents mobiles. Une place est localisée
+par une URL (complète, adresse IP, nom de machine en réseau local...)
+et éventuellement un numéro de port. Chaque place peut mettre à
+disposition des agents mobiles un ensemble d'adresses d'autres places
+directement accessibles. Ces informations sont stockées dans un fichier
+(<tt>places.txt</tt>), qui contient pour chaque ligne une adresse de place.
+
+<p>
+Le lancement se fait grâce au script <tt>javactvm</tt> (dans le sous-répertoire <tt>bin</tt>), qui s'utilise de la manière suivante :
+</p><pre>    javactvm [chemin d'accès au fichier places.txt] [port]
+</pre>
+où <tt>[chemin d'accès]</tt> est facultatif. S'il est précisé, il doit être impérativement sous forme absolue, sinon le fichier <tt>places.txt</tt> dans le répertoire courant sera utilisé, 
+<br>et où <tt>[port]</tt> (<!-- MATH
+ $1099 \le port \ge 65535$
+ -->
+<img src="index_fichiers/img9.png" alt="$1099 \le port \ge 65535$" align="middle" border="0" height="30" width="161">) est facultatif (il vaut 1099 par défaut).
+<br>
+<br><b>Exemple</b> - Dans /home/leriche/JavActv050/bin :
+<pre>    javactvm /home/leriche/JavActv050/places.txt 2010
+
+    Starting javact :  2010
+    javact v0.5.0 [chambord:2010] - 5:25:13 PM
+</pre>
+
+<p>
+
+</p><h4><a name="SECTION00041010000000000000">
+Remarque :</a>
+</h4><font size="-1">Si dans un réseau local une machine sur laquelle
+on aura besoin d'effectuer des accès depuis l'extérieur possède un nom
+réseau local (hostname) différent de son nom réseau internet, une
+exception liée au fonctionnement de RMI<a name="tex2html10" href="#foot508"><sup>10</sup></a> sera levée (<i>java.net.UnknownHostException</i> après une instruction <i>Naming.lookup()</i>)
+et l'application ne pourra pas fonctionner correctement. Pour remédier
+à cela, il est possible de passer en paramètre du script <tt>javactvm</tt> l'option <tt>-Djava.rmi.server.hostname=</tt> suivie de l'adresse externe de la machine (URL ou IP). Par exemple sur une machine appellée <tt>kinder</tt> sur un réseau local accessible depuis l'exterieur par <tt>zerezo.com</tt>, il faut passer le paramètre <tt>-Djava.rmi.server.hostname=zerezo.com</tt>.
+</font>
+<p>
+
+</p><h2><a name="SECTION00042000000000000000">
+Exécution d'un programme</a>
+</h2>
+Une fois l'application compilée, le lancement est facilité par le script <tt>javact</tt> (dans le sous-répertoire <tt>bin</tt>)
+qui prend en paramètre le nom de la classe principale et ses éventuels
+paramètres. Si les classes nécessaires à l'exécution de l'application
+ne sont pas fournies sur chacun des sites d'exécution, il faut donner
+une adresse où chaque machine virtuelle pourra les récupérer<a name="tex2html11" href="#foot519"><sup>11</sup></a>. Cela se fait en passant comme premier argument <tt>-Djava.rmi.server.codebase=</tt> suivi d'une ou plusieurs localisation des fichiers entre " ", qui peuvent être des répertoires, des archives jar, etc.
+
+<p>
+S'il existe un système de fichiers partagés (type nfs), on utilisera par exemple :
+</p><pre>-Djava.rmi.server.codebase=
+                  "file:/home/leriche/JavActv050/examples/net/rmi/HelloWorld/"
+</pre>
+(attention au '/' final !), on peut aussi utiliser un serveur web externe, par exemple :
+<pre>-Djava.rmi.server.codebase="http://noman.zerezo.com/JavAct/HelloWorld/"
+</pre>
+
+<p>
+
+</p><h4><a name="SECTION00042010000000000000">
+Exemple</a>
+</h4> - Après avoir lancé un système d'accueil sur <tt>caraibe</tt>, <tt>chambord</tt> et <tt>chambord:1100</tt>, on se place
+dans le répertoire <tt>/home/leriche/JavActv050/examples/net/rmi/HelloWorld</tt> où se trouve le fichier <tt>HelloWorld.class</tt>. On peut lancer l'exécution du programme <tt>HelloWorld</tt>
+en passant les références des 3 places en paramètre (ceci provoque
+l'affichage de «&nbsp;Hello&nbsp;» sur la première place, de
+«&nbsp;Wonderful&nbsp;» sur la deuxième et de «&nbsp;World&nbsp;» sur
+la troisième) :
+<p>
+</p><pre>    /home/leriche/JavActv050/bin/javact
+    -Djava.rmi.server.codebase=
+                  "file:/home/leriche/JavActv050/examples/net/rmi/HelloWorld/"
+    HelloWorld
+    caraibe chambord chambord:1100
+</pre>
+
+<p>
+
+</p><h4><a name="SECTION00042020000000000000">
+Remarque :</a>
+</h4><font size="-1">Si l'application est construite avec des
+paquetages, il faut se placer dans le répertoire supérieur au paquetage
+pour lancer l'application (comme pour les programmes java standard).
+Par exemple, si le programme précédent était dans un paquetage <tt>examples.net.rmi.helloWorld</tt>, il faudrait se placer dans le répertoire supérieur à <tt>examples</tt> puis appeller le script <tt>javact</tt> avec :
+</font><pre>    ~/examples&gt;/home/leriche/JavActv050/bin/javact
+    -Djava.rmi.server.codebase="file:/home/leriche/JavActv050/"
+    examples.net.rmi.helloWorld.HelloWorld
+    caraibe chambord chambord:1100
+</pre>
+<p>
+
+</p><h2><a name="SECTION00043000000000000000">
+Compilation de la bibliothèque</a>
+</h2>
+Pour les utilisateurs qui souhaitent modifier la bibliothèque pour leur
+propre usage, nous avons inclus un script de compilation <tt>build</tt> (dans le sous-répertoire <tt>bin</tt>) qui archive toutes les classes compilées dans le fichier <tt>javact.jar</tt>, placé dans le répertoire <tt>JavActv050</tt>.
+
+<br>
+<br><b>Exemple</b> - Dans /home/leriche/JavActv050/bin : <tt>build</tt>
+<pre>    Compiling javact ...
+    Compiling Creator for RMI ...
+    Compiling ReceiveCt for RMI ...
+    Compiling ClientSideAnswerBackImpl for RMI ...
+    Building javact.jar...
+    [...]
+    Done !
+</pre>
+
+<p>
+
+</p><h1><a name="SECTION00050000000000000000">
+Comment développer une application</a>
+</h1>
+Il convient de respecter un certain ordre dans les étapes de développement d'une application J<small>AV</small>A<small>CT</small>:
+
+<p>
+
+</p><ol>
+<li>Spécification des profils des comportements et des acteurs (définition d'interfaces Java)
+</li>
+<li>Génération automatique des classes pour les messages et des classes abstraites pour les comportements
+</li>
+<li>Implantation des comportements (codage des classes qui étendent les classes abstraites générées)
+</li>
+</ol>
+
+<p>
+Nous allons détailler le processus de développement dans un 1<sup>er</sup>exemple ; puis, les exemples suivants serviront chacun à expliquer la mise en <img src="index_fichiers/img4.png" alt="\oe" align="bottom" border="0" height="9" width="15">uvre de certaines caractéristiques de J<small>AV</small>A<small>CT</small>.
+
+</p><p>
+
+</p><h2><a name="SECTION00051000000000000000">
+L'incontournable «&nbsp;Hello World&nbsp;»</a>
+</h2>
+
+<p>
+Nous utilisons trois acteurs qui s'exécutent sur trois places. Le
+    premier se chargera d'imprimer «&nbsp;Hello&nbsp;», puis activera le second qui affichera alors «&nbsp;Wonderful&nbsp;» et
+    activera le troisième, qui lui affichera «&nbsp;World&nbsp;».
+
+</p><p>
+
+</p><h3><a name="SECTION00051100000000000000">
+Profils des comportements et des acteurs</a>
+</h3>
+
+<p>
+La fig.<a href="http://www.irit.fr/recherches/ISPR/IAM/tutoriel_0/tutoriel.html#figStructureAppliJavact">1</a> présente l'articulation entre les
+    diverses interfaces à définir.  Chaque comportement doit être spécifié par
+    une interface appropriée qui doit hériter de <tt>BehaviorProfile</tt>, et
+    déclarer:
+    
+</p><ul>
+<li>les méthodes correspondant aux messages que ce comportement peut
+	traiter;
+</li>
+<li>les changements de comportement possibles (les comportements possibles pour le message suivant).
+    
+</li>
+</ul>
+    Ensuite, pour chaque acteur de l'application il faut rassembler l'ensemble
+    des comportements qu'il est susceptible d'adopter, en définissant une
+    interface héritant de <tt>ActorProfile</tt>. Il s'agit simplement d'une
+    interface de marquage qui doit hériter des interfaces de tous les
+    comportements adoptables par l'acteur. Cependant, par mesure de
+    simplicité, si l'acteur ne prend qu'un seul comportement il est possible
+    d'utiliser une seule interface qui héritera en même temps de
+    <tt>BehaviorProfile</tt> et de <tt>ActorProfile</tt>.
+
+<p>
+
+</p><p></p>
+	
+<div align="center"><a name="figStructureAppliJavact"></a><a name="744"></a>
+<table>
+<caption align="bottom"><strong>Figure 1:</strong>
+Structure d'une application
+	J<small>AV</small>A<small>CT</small> </caption>
+<tbody><tr><td><div align="center">
+<img src="index_fichiers/img10.png" alt="\includegraphics[]{structureAppliJavact.eps}" align="bottom" border="0" height="203" width="678">
+	
+</div></td></tr>
+</tbody></table>
+</div>
+
+<p>
+
+</p><h4><a name="SECTION00051110000000000000">
+Exemple</a>
+</h4>Nous avons trois profils de comportement, chacun acceptant un message
+	<tt>print</tt> avec éventuellement en paramètre le (les) acteur(s) à
+	activer ensuite. Chaque acteur n'adopte qu'un seul comportement (respectivement
+	<tt>Hello</tt>, <tt>Wonderful</tt>, <tt>World</tt>). Pour simplifier, on peut donc fusionner
+	la définition des profils de comportement et d'acteur :
+    
+<br><p>
+
+</p><p>
+</p><pre>    import javact.util.BehaviorProfile;
+    import javact.util.ActorProfile;
+    import javact.lang.Actor;
+    interface Hello extends BehaviorProfile, ActorProfile {
+        /* Paramètres : les acteurs chargés d'afficher "Wonderful" et "World" */
+        public void print(Actor wonderful, Actor world);
+    }
+
+    import javact.util.BehaviorProfile;
+    import javact.util.ActorProfile;
+    import javact.lang.Actor;
+    interface Wonderful extends BehaviorProfile, ActorProfile {
+        /* Paramètre : l'acteur chargé d'afficher "World" */
+        public void print(Actor world);
+    }
+
+    import javact.util.BehaviorProfile;
+    import javact.util.ActorProfile;
+    interface World extends BehaviorProfile, ActorProfile {
+        public void print();
+    }
+</pre>
+
+<p>
+En fait, on peut spécifier deux sortes de méthodes auxquelles correspondent deux sortes de messages :
+
+</p><p>
+
+</p><ul>
+<li>les messages <i>asynchrones</i> classiques correspondent aux méthodes renvoyant <tt>void</tt> ;
+</li>
+<li>les messages <i>avec retour</i> correspondent aux méthodes qui renvoient une valeur.
+</li>
+</ul>
+
+<p>
+Les messages <i>avec retour</i> sont des messages spéciaux, qui
+restent asynchrones et non bloquants pour l'émetteur mais qui lui
+permettent d'obtenir une réponse. Quand il en a besoin, l'émetteur doit
+la demander explicitement en faisant un appel à la méthode <tt>getReply()</tt> de l'objet message ; alors, il se bloque jusqu'à son obtention. Auparavant il aura pu effectuer d'autres actions.
+
+</p><p>
+
+</p><h3><a name="SECTION00051200000000000000"></a><a name="generation"></a><br>
+Génération automatique
+</h3>
+    Deux types de fichiers sont générés:
+    
+<ul>
+<li>les implantations de <tt>QuasiBehavior</tt> implantant le code des méthodes <tt>become</tt>;
+</li>
+<li>les classes correspondant aux messages.
+    
+</li>
+</ul>
+
+<p>
+Pour les messages <i>asynchrones</i> classiques, le préfixe <tt>JAM</tt> est ajouté devant le nom du message pour obtenir le nom du fichier java correspondant. Pour les messages <i>avec retour</i>, on ajoute le préfixe <tt>JSM</tt> ainsi que le nom du type de retour, pour distinguer les messages de même nom mais renvoyant des valeurs de types différents<a name="tex2html13" href="#foot746"><sup>12</sup></a>, et la méthode <tt>getReply()</tt> est engendrée avec le «&nbsp;bon&nbsp;» type de retour.
+
+</p><p>
+
+</p><h4><a name="SECTION00051210000000000000">
+Exemple</a>
+</h4>Pour Hello World nous aurons, pour les messages, une seule classe <tt>JAMprint</tt>
+	contenant les trois signatures possibles ; son code source est donné en
+	annexe&nbsp;<a href="http://www.irit.fr/recherches/ISPR/IAM/tutoriel_0/tutoriel.html#annexeJAMprint">A</a> (p.<a href="http://www.irit.fr/recherches/ISPR/IAM/tutoriel_0/tutoriel.html#annexeJAMprint"><img alt="[*]" src="index_fichiers/crossref.png" align="bottom" border="1"></a>).
+    
+<br><p>
+
+</p><p>
+Pour effectuer la génération automatique, il suffit d'exécuter le script
+    <tt>javactgen</tt> (dans le sous-répertoire <tt>bin</tt>) qui se chargera
+    d'extraire toutes les informations nécessaires à la génération. Cela
+    donnera un résultat semblable au suivant:
+    </p><pre>$ javactgen *.java
+Found the following actor profile(s): Hello, Wonderful, World.
+Compiling files defining actor profile interfaces...
+Extracting messages...
+Handling the actor profile Hello...
+        This is also a behavior profile.
+Handling the actor profile Wonderful...
+        This is also a behavior profile.
+Handling the actor profile World...
+        This is also a behavior profile.
+Generating QuasiBehaviors...
+Generating messages...
+Compiling generated files...
+</pre>
+
+<p>
+Pour Hello World les fichiers générés seront:
+
+</p><ul>
+<li><tt>HelloQuasiBehavior.java</tt>, <tt>WonderfulQuasiBehavior.java</tt> et 
+<br><tt>WorldQuasiBehavior.java</tt>
+</li>
+<li><tt>JAMprint.java</tt>.
+</li>
+</ul>
+
+<p>
+
+</p><h4><a name="SECTION00051220000000000000">
+Remarque :</a>
+</h4><font size="-1">Si l'application utilise des paquetages, il faut le préciser au générateur en utilisant l'option suivante : <tt>-P &lt;nom du paquetage&gt;</tt>. Si l'application déclare le paquetage <tt>examples.net.rmi.helloWorld</tt>, il faut pour générer les messages se placer dans le répertoire supérieur à <tt>examples</tt> (contenant <tt>examples</tt>), puis appeller le script de la façon suivante :
+<br><tt>javactgen -P examples.net.rmi.helloWorld examples/net/rmi/helloWorld/*.java</tt>.
+</font>
+<p>
+
+</p><h3><a name="SECTION00051300000000000000">
+Implantation des comportements</a>
+</h3>
+    Il faut maintenant écrire le contenu des méthodes déclarées dans les
+    profils de comportement. Pour cela il faut écrire des classes qui
+    héritent des classes générées <tt>XxxQuasiBehavior</tt>.
+    
+<h4><a name="SECTION00051310000000000000">
+Exemple</a>
+</h4>Le code de la classe de HelloBeh pourrait être le suivant:
+<pre>    import javact.lang.Actor;
+    class HelloBeh extends HelloQuasiBehavior {
+        public void print(Actor wonderful, Actor world) {
+            System.out.println("&lt;" + myPlace() + "&gt; -- Hello ...");
+            send(new JAMprint(world), wonderful);
+            suicide();
+        }
+    }
+</pre>
+    Lorsqu'il traite le message <tt>print</tt>, l'acteur affiche «&nbsp;Hello&nbsp;»
+    puis transmet le message aux acteurs suivants. Enfin il se suicide
+    puisqu'il a terminé sa tâche.
+    
+<br><p>
+
+</p><p>
+Nous obtenons finalement la structure présentée en
+    fig.<a href="http://www.irit.fr/recherches/ISPR/IAM/tutoriel_0/tutoriel.html#fig:structureHelloWorld">2</a>.
+    
+</p><div align="center"><a name="fig:structureHelloWorld"></a><a name="747"></a>
+<table>
+<caption align="bottom"><strong>Figure 2:</strong>
+Structure de l'application
+	Hello World</caption>
+<tbody><tr><td><div align="center">
+<img src="index_fichiers/img11.png" alt="\includegraphics[]{structureHelloWorld.eps}" align="bottom" border="0" height="222" width="678">
+	
+</div></td></tr>
+</tbody></table>
+</div>
+
+<p>
+
+</p><h3><a name="SECTION00051400000000000000">
+Et pour finir...</a>
+</h3>
+    Il n'y a plus désormais qu'à écrire la fin de l'application. Il est nécessaire d'amorcer le
+    processus en créant «&nbsp;à la main&nbsp;» les premiers acteurs et en envoyant le premier message.
+C'est à cela que servent <tt>CreateCt.STD.create()</tt> et <tt>SendCt.STD.send()</tt><a name="tex2html15" href="#foot748"><sup>13</sup></a>.
+
+<p>
+
+</p><h4><a name="SECTION00051410000000000000">
+Exemple</a>
+</h4>Notre méthode <tt>main</tt> pourrait
+    contenir les lignes suivantes:
+<pre>    import javact.lang.Actor;
+    import javact.net.rmi.CreateCt;
+    import javact.net.rmi.SendCt;
+    public class HelloWorld {
+        public static void main(String[] args) {
+            if (args.length == 3) {
+                Actor hello = CreateCt.STD.create(args[0], new HelloBeh());
+                Actor wonderful = CreateCt.STD.create(args[1], new WonderfulBeh());
+                Actor world = CreateCt.STD.create(args[2], new WorldBeh());
+                SendCt.STD.send(new JAMprint(wonderful, world), hello);
+            } else {
+                System.out.println("Running on randomly determinated places");
+                Actor hello = CreateCt.STD.create(new HelloBeh());
+                Actor wonderful = CreateCt.STD.create(new WonderfulBeh());
+                Actor world = CreateCt.STD.create(new WorldBeh());
+                SendCt.STD.send(new JAMprint(wonderful, world), hello);
+            }
+        }
+    }
+</pre>
+    Les trois acteurs sont créés sur trois places dont les noms (<tt>String</tt>) sont passés en ligne de commande (ou, par défaut, choisies aléatoirement au sein du domaine défini dans le fichier <tt>places.txt</tt>), puis le premier est activé en lui envoyant
+    un message «&nbsp;print&nbsp;». C'est ce message qui permet d'amorcer la communication.
+    
+<br><p>
+
+</p><p>
+La compilation des classes restantes se fait avec le script <tt>javactc</tt>
+    (sous-répertoire <tt>bin</tt>). Il s'utilise exactement comme le
+    compilateur <tt>javac</tt> et doit recevoir en paramètre le fichier contenant
+    la déclaration «&nbsp;<tt>public static void main...</tt>&nbsp;».
+<br>
+</p><p>
+Pour l'exécution de cet exemple ou pourra se reporter à la section
+    précédente.
+
+</p><p>
+    
+</p><h2><a name="SECTION00052000000000000000">
+La cellule</a>
+</h2>
+
+<p>
+Nous allons ici illustrer le changement de comportement avec une cellule
+    alternativement vide et pleine<a name="tex2html16" href="#foot881"><sup>14</sup></a>. Les profils de comportement sont les
+    suivants:
+</p><pre>    interface Full extends BehaviorProfile {
+        public void get(Actor a);
+        public void become(Empty bp);
+    }
+
+    interface Empty extends BehaviorProfile {
+        public void put(int v);
+        public void become(Full bp);
+    }
+</pre>
+
+<p>
+L'acteur correspondant est décrit par le profil suivant :
+
+</p><p>
+</p><pre>    interface Cell extends Empty, Full, ActorProfile { 
+    }
+</pre>
+
+<p>
+Pour illustrer le fonctionnement de la cellule nous définissons un client
+    qui récupèrera son contenu:
+</p><pre>    interface Client extends BehaviorProfile, ActorProfile {
+        public void val(int v) ;
+    }
+</pre>
+
+<p>
+L'annexe&nbsp;<a href="http://www.irit.fr/recherches/ISPR/IAM/tutoriel_0/tutoriel.html#annexeEmptyQuasiBehavior">B</a>
+    p.<a href="http://www.irit.fr/recherches/ISPR/IAM/tutoriel_0/tutoriel.html#annexeEmptyQuasiBehavior"><img alt="[*]" src="index_fichiers/crossref.png" align="bottom" border="1"></a> donne un exemple de comportement
+    automatiquement généré.
+
+</p><p>
+L'implantation des comportements sera la suivante:
+</p><pre>    class EmptyCellBeh extends EmptyQuasiBehavior {
+        public void put(int i) {
+            System.out.println("Empty cell " + ego() + " receives put(" + i + ") request");
+            become(new FullCellBeh(i, this));
+        }
+    }
+
+    class FullCellBeh extends FullQuasiBehavior {
+        int i;
+        Empty empty;
+
+        FullCellBeh(int i, Empty empty) {
+            this.i = i;
+            this.empty = empty;
+        }
+
+        public void get(Actor a) {
+            System.out.println("Full cell " + ego() + 
+                               " receives get request; will return " + i);
+            send(new JAMvalue(i), a);
+            become(empty);
+        }
+    }
+
+    class ClientBeh extends ClientBehavior {
+        public void value(int i) {
+            System.out.println("Client " + ego() + " receives " + i);
+        }
+    }
+</pre>
+
+<p>
+Et le programme principal pourra être le suivant :
+</p><pre>    public static void main(String[] args) {
+        Actor cell = CreateCt.STD.create("localhost", new EmptyCellBeh());
+        SendCt.STD.send(new JAMput(2004), cell);
+
+        Actor customer = CreateCt.STD.create("localhost:1100", new ClientBeh());
+        SendCt.STD.send(new JAMget(customer), cell);
+    }
+</pre>
+
+<p>
+Ici, la cellule et le client sont respectivement créés sur les places <tt>localhost</tt> et <tt>localhost:1100</tt>.
+
+</p><p>
+
+</p><h2><a name="SECTION00053000000000000000">
+Le crible d'Eratosthène</a>
+</h2>
+
+<p>
+L'exemple présenté dans cette partie concerne le calcul des N premiers
+nombres premiers par la méthode du Crible d'Eratosthène. Cet exemple
+illustre en particulier la faculté de création dynamique des acteurs.
+L'algorithme est proche d'une version parallèle initialement proposée
+par D. Gries<a name="tex2html17" href="#foot942"><sup>15</sup></a>.
+
+</p><p>
+
+</p><p><br>
+Le calcul repose sur la construction dynamique d'un pipeline d'acteurs,
+chacun représentant un nombre premier, les acteurs étant chaînés dans
+l'ordre croissant. Chacun des acteurs joue le rôle d'un crible plus
+sélectif que le crible précédent. Tout acteur est conçu pour recevoir
+et traiter (méthode <tt>sift</tt>) un message contenant un nombre à cribler (message <tt>JAMsift</tt>). En terme de communication, tous les acteurs du crible offrent donc la même interface.
+
+</p><p>
+Tous les messages sont envoyés au premier acteur du pipeline, un par un
+et dans l'ordre croissant. Lorsque le nombre reçu est un multiple du
+nombre (premier) que l'acteur représente, il ne traverse pas le crible
+et il est abandonné. En revanche, lorsque ce nombre n'est pas multiple,
+deux cas se présentent, selon que l'acteur qui le traite est à
+l'extrémité du pipeline ou pas. Chacun de ces cas est implanté par un
+comportement différent (classe <tt>LastBeh</tt> pour le comportement de l'acteur extrémité, classe <tt>IntermediateBeh</tt> dans l'autre cas) :  
+
+</p><p>
+
+</p><ul>
+<li>si l'acteur est à l'extrémité du pipeline, il crée un nouvel acteur
+qui représente le nombre reçu (la nouvelle extrémité), puis prend un
+comportement d'acteur intermédiaire ;
+</li>
+<li>si l'acteur n'est pas à l'extrémité, il fait suivre le nombre reçu
+à son suivant dans le pipeline (dont il connaît la référence puisqu'il
+l'a créé).
+</li>
+</ul>
+
+<p>
+
+</p><p><br>Quand un acteur du pipeline a pris un comportement d'acteur
+intermédiaire, il le conserve définivement. Ceci conduit à spécifier
+deux interfaces de comportement qui diffèrent par l'existence de la
+méthode <tt>become</tt><a name="tex2html18" href="#foot943"><sup>16</sup></a>. Alors, on peut spécifier les profils ainsi :
+
+</p><p>
+</p><pre>public interface IntermediateSieve extends BehaviorProfile {
+    public void sift(int i);
+}
+
+public interface LastSieve extends IntermediateSieve {
+    public void become(IntermediateSieve b);
+}
+
+public interface Sieve extends IntermediateSieve, LastSieve, ActorProfile {
+}
+</pre>
+
+<p>
+Les comportements peuvent alors s'implémenter comme suit :
+
+</p><p>
+</p><pre>class IntermediateBeh extends IntermediateSieveQuasiBehavior {
+    protected int prime;
+    protected Actor next;
+
+    public IntermediateBeh(int i, Actor a) {
+        super();
+        prime = i;
+        next = a;
+    }
+
+    public void sift(int i) {
+        if ((i % prime) != 0)
+            send(new JAMsift(i), next);
+    }
+}
+
+class LastBeh extends LastSieveQuasiBehavior {
+    protected int prime;
+
+    public LastBeh(int i) {
+        super();
+        prime = i;
+        System.out.println("*** " + prime + " is a prime number ***");
+    }
+
+    public void sift(int i) {
+        if ((i % prime) != 0) {
+            Actor next = create(new LastBeh(i));
+            become(new IntermediateBeh(prime, next));
+        }
+    }
+}
+</pre>
+
+<p>
+L'application commence par la création de l'acteur pour l'entier 2 auquel sont envoyés les nombres dans l'ordre croissant<a name="tex2html19" href="#foot920"><sup>17</sup></a>.
+
+</p><p>
+</p><pre>public class PrimeNumbers {
+    public static void main(String[] args) {
+        if (args.length != 0) {
+            int valint = Integer.parseInt(args[0]);
+            if (valint &gt; 2) {
+                Actor two = CreateCt.STD.create(new LastBeh(2));
+                for (int i = 3; valint &gt;= i; i++)
+                    SendCt.STD.send(new JAMsift(i), two);
+            } else System.out.println("Give an int &gt; 2");
+        } 
+    }
+}
+</pre>
+
+<p>
+Les deux captures d'écran (figures <a href="http://www.irit.fr/recherches/ISPR/IAM/tutoriel_0/tutoriel.html#fig:captwin">3</a> et <a href="http://www.irit.fr/recherches/ISPR/IAM/tutoriel_0/tutoriel.html#fig:captlin">4</a>)
+montrent la trace de l'exécution (ici, les acteurs sont créés
+aléatoirement sur une des places du domaine, ce qui en l'occurrence
+engendre une inefficacité certaine).
+Dans la figure <a href="http://www.irit.fr/recherches/ISPR/IAM/tutoriel_0/tutoriel.html#fig:captlin">4</a>, on voit en bas à gauche la fenêtre montrant <tt>caraibe</tt> station Sun sous SunOS, en haut à droite la ligne de commande du crible (notez l'utilisation d'un serveur de classe sur <tt>chambord:8080</tt>), et en bas à droite le listing des classes demandées au serveur de classe
+
+</p><p>
+
+</p><div align="center"><a name="fig:captwin"></a><a name="944"></a>
+<table>
+<caption align="bottom"><strong>Figure 3:</strong>
+Capture sous Windows XP, PC <tt>chenonceau</tt></caption>
+<tbody><tr><td><div align="center">
+<img src="index_fichiers/img12.png" alt="\includegraphics[width=0.65\textwidth]{capturew}" align="bottom" border="0" height="254" width="360"> 
+</div></td></tr>
+</tbody></table>
+</div>
+
+<p>
+
+</p><div align="center"><a name="fig:captlin"></a><a name="945"></a>
+<table>
+<caption align="bottom"><strong>Figure 4:</strong>
+Capture sous Linux, PC <tt>chambord</tt></caption>
+<tbody><tr><td><div align="center">
+<img src="index_fichiers/img13.png" alt="\includegraphics[width=0.9\textwidth]{capturec}" align="bottom" border="0" height="400" width="500"> 
+</div></td></tr>
+</tbody></table>
+</div>
+
+
+<p>
+
+</p><h2><a name="SECTION00054000000000000000">
+Un agent mobile de recherche d'information</a>
+</h2>
+
+<p>
+Nous considérons maintenant une application dans laquelle un agent mobile recherche des informations sur des places qu'il visite<a name="tex2html22" href="#foot1078"><sup>18</sup></a>.
+Par cet exemple, nous illustrons d'une part la mobilité d'agent et ses
+différents aspects, d'autre part le mécanisme d'envoi de messages avec
+retour de résultats.
+</p><p>
+
+</p><p><br>Ici, pour l'exemple, l'information recherchée est le volume
+de mémoire disponible. L'agent mobile de recherche est susceptible de
+recevoir et de traiter trois types de requêtes :
+</p><p>
+
+</p><ul>
+<li>des demandes de recherche simple, sous forme de messages asynchrones standard contenant un identificateur de place ;
+</li>
+<li>des demandes de recherche complexe, sous forme de messages
+asynchrones standard contenant un itinéraire et un identificateur de
+place ;
+</li>
+<li>des demandes d'information, sous forme de messages asynchrones avec retour de résultat.
+</li>
+</ul>
+
+<p>
+
+</p><p><br>
+Selon le type de demande, l'agent opère comme suit :
+
+</p><p>
+
+</p><ul>
+<li>pour une demande de recherche simple, l'agent récupère et mémorise
+le volume de mémoire disponible sur la place où il se trouve, puis se
+déplace sur la place donnée dans le message ;
+</li>
+<li>pour une demande de recherche complexe, l'agent récupère et
+mémorise le volume de mémoire disponible sur la place où il se trouve
+ainsi que sur toutes les places de l'itinéraire qu'il parcourt, puis à
+la fin du parcours, il se déplace sur la place donnée dans le message ;
+</li>
+<li>pour une demande d'information, l'agent retourne au demandeur les informations acquises depuis la dernière demande de résultat.
+</li>
+</ul>
+
+<p>
+
+</p><p><br>
+Pour l'agent mobile, de type <tt>browser</tt>, les méthodes <tt>browseAndJump()</tt> et <tt>getInfos()</tt>
+définissent l'ensemble des messages qu'il peut traiter. Le traitement
+d'une demande de recherche complexe impose à l'agent de prendre un
+comportement particulier dans lequel il va parcourir l'itinéraire et
+rechercher l'information, sans traiter les messages en attente.
+</p><p>
+
+</p><p><br>Toutes les requêtes étant envoyées à l'agent mobile par le
+programme principal, nous ne spécifions pas d'agent client. En
+revanche, l'application implique un agent superviseur (dont la
+référence est connue de l'agent mobile) et qui a pour seul rôle d'être
+informé par message lorsqu'un déplacement de l'agent échoue (méthode <tt>trace()</tt>).
+
+</p><p>
+La spécification des profils des comportements et des acteurs conduit donc aux définitions ci-dessous :
+
+</p><p>
+</p><pre>public interface OneStepBrowser extends BehaviorProfile {
+    public void browseAndJump(String place);
+    public void browseAndJump(Vector itinerary, String place);
+    public Vector getInfos();
+    void become(MultiStepBrowser b);
+}
+public interface MultiStepBrowser extends BehaviorProfile {
+    void become(OneStepBrowser b);
+}
+
+public interface Browser extends OneStepBrowser, MultiStepBrowser, ActorProfile {
+}
+
+public interface Supervisor extends BehaviorProfile, ActorProfile {
+    public void trace(String s);
+}
+</pre>
+
+<p>
+Le prétraitement de ces interfaces (via le script <tt>javactgen</tt>) permet d'engendrer les classes :
+
+</p><ul>
+<li><tt>OneStepBrowserQuasiBehavior</tt>, <tt>MultiStepBrowserQuasiBehavior</tt> et
+<br><tt>SupervisorQuasiBehavior</tt>,
+</li>
+<li><tt>JAMbrowseAndJump</tt>, <tt>JAMtrace</tt> et <tt>JSMgetInfosVector</tt>.
+</li>
+</ul>
+
+<p>
+
+</p><p><br>
+La classe <tt>JSMgetInfosVector</tt> offre une méthode <tt>getReply()</tt> qui permet la récupération du résultat de la requête :
+
+</p><p>
+</p><pre>public class JSMgetInfosVector extends MessageWithReply {
+    private java.util.Vector result ;
+    ...
+    public java.util.Vector getReply() {
+        ...
+    }
+}
+</pre>
+
+<p>
+Pour implanter les comportements, on dispose de la méthode <tt>go(String p)</tt> qui permet d'indiquer que le prochain message sera traité (avec le prochain comportement) sur la place identifiée par <tt>p</tt>. Comme c'est le cas pour le changement de comportement, le déplacement n'est pas réellement effectué au moment de l'appel à <tt>go()</tt> mais avant de traiter le message suivant<a name="tex2html23" href="#foot1026"><sup>19</sup></a>. Précisons que :
+
+</p><p>
+
+</p><ul>
+<li>d'une part, on peut invoquer <tt>go()</tt> comme <tt>become()</tt> n'importe où dans le comportement,
+</li>
+<li>d'autre part, en cas d'appel successifs à <tt>go()</tt> comme à <tt>become()</tt>, seul le dernier sera pris en considération,
+</li>
+<li>enfin, un échec du déplacement ne provoque pas le jet d'une exception dans <tt>go()</tt> ; aussi, du point de vue du déplacement, la méthode <tt>go()</tt> n'échoue pas, et toutes les instructions du comportement qui suivent l'invocation <tt>go()</tt> sont exécutées.
+</li>
+</ul>
+
+<p>
+En revanche, via un mécanisme d'exception interne à la bibliothèque, il
+est possible pour le programmeur, de contrôler un échec éventuel lors
+du déplacement : la méthode <tt>go(String p, HookInterface h)</tt> permet d'associer au déplacement un objet dédié à la reprise du calcul en cas d'echec au déplacement, et dont la méthode <tt>void resume()</tt> sera alors automatiquement invoquée. On peut programmer la reprise du calcul au sein d'une classe qui implante l'interface <tt>HookInterface</tt> en implantant la méthode <tt>resume()</tt>
+; si cette classe est interne à la classe comportement, on peut accéder
+à tous les éléments du comportement courant, et en particulier
+redéfinir le déplacement et le comportement suivant de l'agent.
+</p><p>
+
+</p><p><br>Pour que l'agent puisse opérer de manière autonome sur son
+itinéraire, le comportement de recherche complexe doit implanter
+l'interface <tt>javact.util.StandAlone</tt> : cette interface spécifie une méthode <tt>run()</tt>
+qui est exécutée automatiquement à chaque fois qu'un agent est installé
+(par création ou déplacement) sur une place. Via cette interface, on
+peut d'une part créer des agents auto-actifs sans qu'il soit nécéssaire
+de les activer par message, d'autre part (c'est ici le cas) des agents
+capables de se déplacer de manière autonome sur le réseau <a name="tex2html24" href="#foot1079"><sup>20</sup></a>.
+
+</p><p>
+
+</p><p><br>
+On code alors les comportements comme suit (la structure de donnée est déclarée <tt>Serializable</tt> afin de pouvoir être déplacée et transmise sans provoquer une exception) :
+
+</p><p>
+</p><pre>class Info implements Serializable {
+    private long freeMemory;
+    private String place;
+
+    public Info(String place, long freeMemory) {
+        this.place = place;
+        this.freeMemory = freeMemory;
+    }
+
+    long getFreeMemory() {
+        return freeMemory;
+    }
+    String getPlace() {
+        return place;
+    }
+    public String toString() {
+        return place + " : " + freeMemory;
+    }
+}
+
+class SimpleHook implements HookInterface {
+    Actor supervisor;
+    SimpleHook(Actor supervisor) {
+        this.supervisor = supervisor;
+    }
+    public void resume(GoException e) {
+        // Nothing to do : the agent stays in its current place. A message is sent.
+        SendCt.STD.send(new JAMtrace("Unreachable place : " + e.getPlace()), supervisor);
+    }
+}
+
+/**
+ * The behavior for (when activated) local browsing, then moving. 
+ */
+class OneStepBrowserBeh extends OneStepBrowserQuasiBehavior {
+    Actor supervisor;
+    Vector collectedInfos;
+	
+    class Hook implements HookInterface {
+        Vector itinerary;
+        String place;
+        Hook(Vector itinerary, String place){
+            this.itinerary = itinerary;
+            this.place = place;
+        }
+        public void resume(GoException e) {
+            String message = ego() + " : " + e.getPlace() + " is unreachable from " 
+                             + myPlace() + " - Moves to " + itinerary.firstElement();
+            send(new JAMtrace(message), supervisor);
+            go((String) itinerary.firstElement(), new Hook(itinerary, place));
+            itinerary.removeElementAt(0);
+            become(new MultiStepBrowserBeh(supervisor, collectedInfos, itinerary, place));
+        }
+    }
+
+    // Constructors
+    OneStepBrowserBeh(Actor supervisor) {
+        this.supervisor = supervisor;
+        this.collectedInfos = new Vector();
+    }
+    OneStepBrowserBeh(Actor supervisor, Vector collectedInfos) {
+        this.supervisor = supervisor;
+        this.collectedInfos = collectedInfos;
+    }
+
+    // Methods
+    public void browseAndJump(String place) {
+        // local browsing first
+        collectedInfos.addElement(new Info(myPlace(), Runtime.getRuntime().freeMemory()));
+        // then, moving
+        go(place, new SimpleHook(supervisor));
+    }
+    public void browseAndJump(Vector itinerary, String place) {
+        // local browsing first
+        collectedInfos.addElement(new Info(myPlace(), Runtime.getRuntime().freeMemory()));
+        if (!itinerary.isEmpty()) {
+            // then travelling
+            go((String) itinerary.firstElement(), new Hook(itinerary, place));
+            itinerary.removeElementAt(0);
+            become(new MultiStepBrowserBeh(supervisor, collectedInfos, itinerary, place));
+        } else
+            // else moving
+            go(place, new SimpleHook(supervisor));
+    }
+    public Vector getInfos() {
+        Vector saveCollectedInfos = collectedInfos;
+        collectedInfos = new Vector();
+        return saveCollectedInfos;
+    }
+}
+
+/**
+ * The behavior for automatic browsing and moving on a list of places
+ */
+class MultiStepBrowserBeh extends MultiStepBrowserQuasiBehavior implements StandAlone {
+    Actor supervisor;
+    Vector collectedInfos;
+    Vector itinerary;
+    String place;
+	
+    class Hook implements HookInterface {
+        Vector itinerary;
+        String place;
+        Hook(Vector itinerary, String place){
+            this.itinerary = itinerary;
+            this.place = place;
+        }
+        public void resume(GoException e) {
+            String message = ego() + " : " + e.getPlace() + " is unreachable from "
+                             + myPlace() + " - Moves to ";
+      	    if (itinerary.size()&gt;0) {
+                message+=itinerary.firstElement();
+                send(new JAMtrace(message), supervisor);
+                go((String) itinerary.firstElement(), new Hook(itinerary, place));
+                itinerary.removeElementAt(0);
+            } else {
+                message+=place;
+                send(new JAMtrace(message), supervisor);
+                go(place); 
+            }
+        }
+    }
+
+    // Constructor
+    MultiStepBrowserBeh(Actor supervisor, Vector collectedInfos, 
+                        Vector itinerary, String place) {
+        this.collectedInfos = collectedInfos;
+        this.itinerary = itinerary;
+        this.place = place;
+    }
+
+    // Method
+    public void run() {
+        // local browsing first
+        collectedInfos.addElement(new Info(myPlace(), Runtime.getRuntime().freeMemory()));
+        if (!itinerary.isEmpty()) {
+            // then travelling
+            go((String) itinerary.firstElement(), new Hook(itinerary, place));
+            itinerary.removeElementAt(0);
+        } else {
+            // else moving
+            become(new OneStepBrowserBeh(supervisor, collectedInfos));
+            go(place, new SimpleHook(supervisor));
+        }
+    }
+}
+
+class SupervisorBeh extends SupervisorQuasiBehavior {
+    public void trace(String s) {
+        System.out.println(s);
+    }
+}
+</pre>
+
+<p>
+Enfin, on écrit le programme principal. Rappelons que l'envoi de
+messages avec retour de résultat n'est pas bloquant pour l'émetteur de
+la requête : ici, l'émetteur n'est pas bloqué pendant que l'agent
+parcours son itinéraire, mais seulement au moment où il demande
+explicitement le résultat en attendant son arrivée.
+</p><p>
+</p><pre>public class MobileBrowser {
+    public static void main(String[] args) {
+        if (args.length &gt;= 2) {
+            Actor supervisor = CreateCt.STD.create(new SupervisorBeh());
+            Actor browser = CreateCt.STD.create(args[0], new OneStepBrowserBeh(supervisor));
+
+            for (int i = 1; i &lt; args.length; i++)
+                SendCt.STD.send(new JAMbrowseAndJump(args[i]), browser);
+            SendCt.STD.send(new JAMbrowseAndJump(args[0]), browser);
+            JSMgetInfosVector m1 = new JSMgetInfosVector();
+            SendCt.STD.send(m1, browser);
+
+            Vector itinerary = new Vector();
+            for (int i = 1; i &lt; args.length; i++) itinerary.addElement(args[i]);
+            SendCt.STD.send(new JAMbrowseAndJump(itinerary, args[0]), browser);
+            JSMgetInfosVector m2 = new JSMgetInfosVector();
+            SendCt.STD.send(m2, browser);
+
+            System.out.println(m1.getReply());
+            System.out.println(m2.getReply());
+        }
+    }
+}
+</pre>
+
+<p>
+La capture d'écran (figure <a href="http://www.irit.fr/recherches/ISPR/IAM/tutoriel_0/tutoriel.html#fig:captagmob">5</a>) montre l'exécution de cet exemple, avec deux machines <tt>caraibe</tt> et <tt>chambord</tt> actives. La place <tt>XXX</tt>
+n'existe pas, et la trace d'exécution montrée par le superviseur
+(fenêtre de gauche) indique les actions de reprise sur erreur. La
+fenêtre de lancement (en haut à droite) contient également les lignes
+de commande pour la génération des classes intermédiaires ainsi que la
+compilation du paquetage <tt>MobileBrowser</tt>.
+
+</p><p>
+
+</p><div align="center"><a name="fig:captagmob"></a><a name="1080"></a>
+<table>
+<caption align="bottom"><strong>Figure 5:</strong>
+Execution du <tt>MobileBrowser</tt></caption>
+<tbody><tr><td><div align="center">
+<img src="index_fichiers/img14.png" alt="\includegraphics[width=\textwidth]{captureMB}" align="bottom" border="0" height="267" width="554"> 
+</div></td></tr>
+</tbody></table>
+</div>
+
+
+<p>
+
+</p><h2><a name="SECTION00055000000000000000">
+Remarques complémentaires</a>
+</h2>
+
+<p>
+
+</p><ol>
+<li>Tous les exemples ont été développés pour une exécution en
+environnement réparti, mais il est tout à fait possible de les exécuter
+en mode local, c'est-à-dire au sein d'une machine virtuelle unique. Il
+suffit pour cela de changer au début des fichiers les lignes
+d'importation <tt>import javact.net.rmi.*;</tt> en <tt>import javact.local.*;</tt>. En mode local, les appels à <tt>create(String p, QuasiBehavior b)</tt> et à <tt>go(String p)</tt>
+restent corrects : la création se fait au sein de l'unique machine
+virtuelle, et le déplacement se réduit à un clonage local avec lien de
+poursuite. Le mode local est conseillé pour la mise au point des
+programmes.
+<p>
+
+</p></li><li>La version actuelle offre un mode rudimentaire
+d'identification des places par une chaîne de caractères. A terme, ceci
+sera modifié et les places auront un véritable statut. Une évolution de
+l'architecture répartie basée sur la notion de domaine hiérarchiques
+(correspondant à une organisation physique et administrative des
+réseaux et des systèmes, ainsi qu'à une organisation interne des
+applications) est en cours d'étude [<a href="http://www.irit.fr/recherches/ISPR/IAM/tutoriel_0/tutoriel.html#hhp04">HHP04</a>].
+
+<p>
+
+</p></li><li>La génération automatique des classes pour les messages et
+leur utilisation systématique permet de s'assurer de l'envoi de
+messages convenablement constitués grâce au typage standard de Java.
+Cependant, cela ne résoud que très marginalement le problème de la
+détection des messages orphelins. La structure que doit respecter une
+application J<small>AV</small>A<small>CT</small> a été étudiée afin de
+permettre un certain nombre de contrôles. Elle permettra à terme
+d'extraire pour chaque acteur son automate de comportement, et de
+comparer son potentiel de traitement avec ce qui lui sera effectivement
+envoyé.
+<p>
+
+</p></li><li>Dans la version actuelle, avec l'implantation standard de
+la boîte aux lettres, les messages sont traités dans l'ordre de
+réception. Un message (orphelin) non traitable par le comportement
+courant d'un acteur est abandonné après affichage d'un message
+d'erreur. D'autres politiques peuvent être implantées par redéfinition
+du micro-composant d'acteur «&nbsp;boîte aux
+lettres&nbsp;».
+<p>
+
+</p></li><li>Java impose que les méthodes déclarées dans les interfaces
+des comportements soient publiques. Bien évidemment, il est n'est pas
+conforme au modèle de programmation, et donc pas permis, d'invoquer
+directement ces méthodes sur l'objet comportement extérieurement à
+lui-même (sa référence n'est connue que de l'objet qui le crée).
+<p>
+
+</p></li><li>On a vu qu'il est possible de définir des acteurs purement
+fonctionnels qui ne changent pas de comportement. En conséquence du
+style impératif de Java, il est possible qu'un acteur change d'état
+sans changer de comportement via un appel à <tt>become()</tt> (cf. l'exemple de l'agent mobile de recherche). Sémantiquement, ne pas exprimer de changement de comportement équivaut à <tt>become(this)</tt> ou à <tt>become(o)</tt> où <tt>o</tt> est un clone du comportement courant.
+
+<p>
+
+</p></li><li>La méthode <tt>becomeAny()</tt> est accessible depuis
+n'importe quel comportement. Elle permet des changements de
+comportement non typés. Elle peut permettre à un acteur d'adopter
+n'importe quel comportement dont il ignore le type (par exemple un
+comportement reçu dans un message). Hors cas particulier, l'utilisation
+de <tt>becomeAny()</tt> est néanmoins très fortement déconseillée.
+
+<p>
+
+</p></li><li>Les objets encapsulés dans des comportements déplaçables
+-par création à distance, mobilité, ou envoi dans un message- (par
+exemple, les informations dans le cas du <tt>MobileBrowser</tt>) doivent être déclarés <i>sérialisables</i> (<tt>implements java.io.Serializable</tt>). Dans le cas contraire, une exception de type <tt>java.io.NotSerializableException</tt> peut être levée au moment du déplacement, empêchant le bon déroulement de l'application en mode réparti.
+
+<p>
+
+</p></li></ol>
+
+<p>
+
+
+</p><p>
+ 
+</p><h2><a name="SECTION00060000000000000000">
+Bibliographie</a>
+</h2><dl compact="compact"><dd>
+<p>
+</p><p></p></dd><dt><a name="agh86">Agh86</a>
+</dt><dd> G. A<small>GHA</small>, <i>Actors: a model of concurrent computation in distributed systems</i>, M.I.T. Press, Cambridge, Ma., 1986.
+
+<p>
+</p><p></p></dd><dt><a name="alp03">ALP03</a>
+</dt><dd> J.-P. A<small>RCANGELI</small>, S. L<small>ERICHE</small>, M. P<small>ANTEL</small>, Vers des Agents Mobiles Adaptables pour le Partage et la Recherche d'Information, Rapport IRIT/2003-25-R, IRIT, Déc. 2003.
+
+<p>
+</p><p></p></dd><dt><a name="amm01">AMM01</a>
+</dt><dd> J.-P. A<small>RCANGELI</small>, C. M<small>AUREL</small>, F. M<small>IGEON</small>, An API for high-level software engineering of distributed and mobile applications, <i>Proceedings of the 8th IEEE Workshop on Future Trends of Distributed Computing Systems</i>, Bologna (It.), IEEE-CS Press, 2001, pp. 155-161.
+
+<p>
+</p><p></p></dd><dt><a name="bi02">BI02</a>
+</dt><dd> G. B<small>ERNARD</small>, L. I<small>SMAIL</small>, Apport des agents mobiles à l'exécution répartie, <i>Revue des sciences et technologies de l'information, série Technique et science informatiques (RSTI-TSI) 21</i>(6), Hermès Science Publications, Lavoisier, 2002, pp. 771-796.
+
+<p>
+</p><p></p></dd><dt><a name="chk94">CHK94</a>
+</dt><dd> D. C<small>HESS</small>, C. H<small>ARRISON</small>, A. K<small>ERSHENBAUM</small>, Mobile agents: Are They a Good Idea? Technical Report, IBM Research Division, New York, 1994.
+
+<p>
+</p><p></p></dd><dt><a name="dp+00">DP+00</a>
+</dt><dd> F. D<small>AGNAT</small>, M. P<small>ANTEL</small>, M. C<small>OLIN</small>, P. S<small>ALLÉ</small>, Typing Concurrent Objects and Actors, <i>L'Objet 6</i>(1), Hermès, 2000, pp. 83-106.
+
+<p>
+</p><p></p></dd><dt><a name="fpv98">FPV98</a>
+</dt><dd> A. F<small>UGGETTA</small>, G.P.. P<small>ICCO</small>, G. V<small>IGNA</small>, Understanding Code Mobility, <i>IEEE Transactions on Software Engineering</i> 24(5), 1998, pp. 342-361. 
+
+<p>
+</p><p></p></dd><dt><a name="hhp04">HHP04</a>
+</dt><dd> A. H<small>URAULT</small>, V. H<small>ENNEBERT</small>, M. P<small>ANTEL</small>, Répartition et mobilité en J<small>AV</small>A<small>CT</small>
+: une approche dérivée d'un modèle formel, Actes de la conférence
+Langages et Modèles à Objets LMO'2004, à paraître, Mars 2004.
+<p>
+</p><p></p></dd><dt><a name="la04">LA04</a>
+</dt><dd> S. L<small>ERICHE</small>, J.-P. A<small>RCANGELI</small>, Une architecture pour les agents mobiles adaptables, Journées Composants JC'2004, à paraître, Mars 2004.
+
+<p>
+</p></dd></dl>
+
+<p>
+
+
+</p><p>
+
+</p><h1><a name="SECTION00070000000000000000"></a><a name="annexeJAMprint"></a><br>
+Un exemple de message généré :
+<tt>JAMprint.java</tt>
+</h1>
+<pre>public class JAMprint implements javact.lang.Message
+{
+    private int signatureNumber ;
+
+    private javact.lang.Actor sig0attr0 ;
+    private javact.lang.Actor sig0attr1 ;
+
+    public JAMprint(javact.lang.Actor _p0, javact.lang.Actor _p1)
+    {
+        signatureNumber = 0 ;
+        sig0attr0 = _p0 ;
+        sig0attr1 = _p1 ;
+    }
+
+    private javact.lang.Actor sig1attr0 ;
+
+    public JAMprint(javact.lang.Actor _p0)
+    {
+        signatureNumber = 1 ;
+        sig1attr0 = _p0 ;
+    }
+
+
+    public JAMprint()
+    {
+        signatureNumber = 2 ;
+    }
+
+    public final void handle(javact.lang.QuasiBehavior _behavior)
+    {
+        switch (signatureNumber)
+        {
+            case 0 :
+                if (_behavior instanceof Hello)
+                    ((Hello) _behavior).print(sig0attr0, sig0attr1) ;
+                else 
+                    throw new javact.lang.MessageHandleException() ;
+                break ;
+            case 1 :
+                if (_behavior instanceof Wonderful)
+                    ((Wonderful) _behavior).print(sig1attr0) ;
+                else 
+                    throw new javact.lang.MessageHandleException() ;
+                break ;
+            case 2 :
+                if (_behavior instanceof World)
+                    ((World) _behavior).print() ;
+                else 
+                    throw new javact.lang.MessageHandleException() ;
+                break ;
+            default :
+                throw new javact.lang.MessageHandleException() ;
+        }
+    }
+}
+</pre>
+
+<p>
+
+</p><h1><a name="SECTION00080000000000000000"></a><a name="annexeEmptyQuasiBehavior"></a><br>
+Un exemple de comportement généré :
+<tt>EmptyQuasiBehavior.java</tt>
+</h1>
+<pre>import javact.lang.QuasiBehavior;
+
+public abstract class EmptyQuasiBehavior extends QuasiBehavior implements Empty
+{
+    public void become(Full b)
+    {
+        try
+        { becomeAny((QuasiBehavior) b); }
+        catch (RuntimeException e)
+        { throw new javact.lang.BecomeException(e);}
+    }
+}
+</pre>
+
+<h1><a name="SECTION00090000000000000000">
+Primitives pour la programmation de comportements</a>
+</h1>
+Cette section présente brièvement les primitives offertes par la bibliothèque J<small>AV</small>A<small>CT</small> pour la programmation de comportements d'acteurs. Toutes ces méthodes sont accessibles par héritage (de la classe <tt>QuasiBehavior</tt>) et sont déclarées <tt>final</tt>,
+il n'est donc pas possible de les redéfinir. Pour plus de détails
+(notemment sur les types) vous pouvez vous référer à la documentation
+javadoc du code de la bibliothèque.
+<p>
+
+</p><h2><a name="SECTION00091000000000000000">
+Création d'un acteur</a>
+</h2>
+Ces primitives permettent de créer un acteur dont on récupère la référence, ou null si la création à échoué. Dans ce cas, une <tt>Runtime</tt> exception <tt>CreateException</tt> est levée.
+
+<p>
+
+</p><p><br>
+<tt>Actor create(QuasiBehavior b)</tt> 
+<br>Création d'acteur sur la place locale à partir du comportement <tt>b</tt>.
+
+</p><p>
+
+</p><p><br>
+<tt>Actor create(String p, QuasiBehavior b)</tt>
+<br>Même chose, mais création sur une place <tt>p</tt>.
+
+</p><p>
+
+</p><p><br>
+<tt>Actor create(
+		String p,
+		QuasiBehavior b,
+		MailBoxCtI box,
+		BecomeCtI bec,
+		CreateCtI 
+<br>crt,
+		LifeCycleCtI lif,
+		MoveCtI mve,
+		SendCtI snd)</tt>
+<br>Même chose, mais en donnant l'ensemble des micro-composants qui régissent le fonctionnement de l'acteur.
+
+</p><p>
+
+</p><h2><a name="SECTION00092000000000000000">
+Envoi de message</a>
+</h2>   
+Ces primitives permettent d'envoyer un message à un acteur. Si l'émission échoue, une <tt>Runtime</tt> exception <tt>SendException</tt> est levée.
+
+<p>
+
+</p><p><br>
+<tt>void send(Message m, Actor a)</tt>
+<br>Envoie le message <tt>m</tt> à l'acteur de référence <tt>a</tt> de manière asynchrone.
+
+</p><p>
+
+</p><p><br>
+<tt>void send(MessageWithReply m, Actor a)</tt>
+<br>Envoie le message <tt>m</tt> à l'acteur de référence <tt>a</tt>. On <i>peut</i> ensuite attendre le résultat avec <tt>m.getReply()</tt>. En cas d'erreur (ré-émission du même message par exemple), une <tt>Runtime</tt> exception <tt>JSMSendException</tt> est levée. En cas de problème côté récepteur, une <tt>Runtime</tt> exception <tt>JavActException</tt> est levée (côté récepteur inaccessible à l'émetteur). 
+
+</p><p>
+
+</p><h2><a name="SECTION00093000000000000000">
+Changement de comportement</a>
+</h2>
+Ces primitives permettent de changer le comportement d'un acteur après la fin du traitement du message courant.
+
+<p>
+
+</p><p><br>
+<tt>void becomeAny(QuasiBehavior b)</tt>
+<br>Depuis la version 0.5.0 de J<small>AV</small>A<small>CT</small>, les primitives typées de changement de comportement 
+<br><tt> become(XXXQuasiBehavior b)</tt> sont générées automatiquement d'après la spécification des comportements d'acteurs (cf. §<a href="http://www.irit.fr/recherches/ISPR/IAM/tutoriel_0/tutoriel.html#generation">4.1.2</a>). Néanmoins, il reste possible <u>mais déconseillé</u> de faire des changements de comportements non typés (et donc potentiellement moins sûrs) avec cette primitive.
+
+</p><p>
+
+</p><p><br>
+<tt>void suicide()</tt>
+<br>Permet de terminer l'exécution de l'acteur, qui ne répondra plus à
+aucun message et ne traitera pas les éventuels messages en attente.
+</p><p>
+
+</p><h2><a name="SECTION00094000000000000000">
+Déplacement de l'acteur</a>
+</h2>Ces primitives permettent de déplacer un acteur vers une place
+accessible du réseau. Pour des raisons de cohérence, la mobilité n'est
+effectuée que lors du changement de comportement (soit à la fin du
+traitement du message courant). L'appel de ces primitives retourne sans
+erreur liée à la mobilité et le code qui suit leur exécution est
+toujours exécuté. Par contre, si une erreur se produit durant le
+déplacement (place inaccessible, problème de réseau...) une <tt>Runtime</tt> exception <tt>GoException</tt> est levée.
+
+<p>
+
+</p><p><br>
+<tt>void go(String p)</tt>
+<br>Déplacement de l'acteur sur une place <tt>p</tt>, sans gérer les erreurs.
+
+</p><p>
+
+</p><p><br>
+<tt>void go(String p, HookInterface h)</tt>
+<br>Déplacement de l'acteur sur une place <tt>p</tt>. Si une <tt>GoException</tt> est levée, la bibliothèque redonne la main à la méthode <tt>resume(GoException e)</tt> de l'objet <tt>h</tt>.
+Cet objet peut être l'instance d'une classe interne du comportement,
+afin de pouvoir acceder à toutes les information nécessaires au
+recouvrement de l'erreur.
+</p><p>
+
+</p><h2><a name="SECTION00095000000000000000">
+Localisation et auto-référence de l'acteur</a>
+</h2>
+<tt>String myPlace()</tt>
+<br>Retourne l'adresse de la place sur laquelle l'acteur s'exécute, sous la forme d'une chaîne de caractères (<tt>nom:port</tt>).
+
+<p>
+
+</p><p><br>
+<tt>Actor ego()</tt>
+<br>Retourne l'auto-référence de l'acteur. 
+
+</p><p>
+
+</p><h2><a name="SECTION00096000000000000000">
+Adaptation des micro-composants</a>
+</h2>
+J<small>AV</small>A<small>CT</small> permet l'adaptation
+dynamique par remplacement de ses micro-composants. Cette adaptation
+n'est effective lors du changement de comportement.
+<p>
+
+</p><p><br>
+<tt>void with(MailBoxCtI box)</tt>
+<br>Remplacement du composant boîte aux lettres.
+
+</p><p>
+
+</p><p><br>
+<tt>void with(BecomeCtI bec)</tt>
+<br>Remplacement du composant de changement de comportement.
+
+</p><p>
+
+</p><p><br>
+<tt>void with(CreateCtI crt)</tt>
+<br>Remplacement du composant de création d'acteur.
+
+</p><p>
+
+</p><p><br>
+<tt>void with(MoveCtI mve)</tt>
+<br>Remplacement du composant de mobilité.
+
+</p><p>
+
+</p><p><br>
+<tt>void with(SendCtI snd)</tt>
+<br>Remplacement du composant d'envoi de messages.
+
+</p><p>
+
+</p><p><br>
+<tt>void with(LifeCycleCtI lif)</tt>
+<br> Remplacementdu composant de gestion du cycle de vie.
+
+</p><p>
+
+</p><h1><a name="SECTION000100000000000000000">
+À propos de ce document...</a>
+</h1>
+ <strong>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<b>Rapport IRIT/2004-5-R
+<br><br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<b>J<small>AV</small>A<small>CT</small>  0.5.0 : principes, installation, utilisation et développement d'applications
+<br><br>
+<br>
+<br>
+<br>
+<br>
+<br>
+J.-P. Arcangeli<img src="index_fichiers/img1.png" alt="$^{*}$" align="bottom" border="0" height="17" width="12">,
+<br>V. Hennebert<img src="index_fichiers/img2.png" alt="$^{**}$" align="bottom" border="0" height="17" width="19">,
+<br>S. Leriche<img src="index_fichiers/img1.png" alt="$^{*}$" align="bottom" border="0" height="17" width="12">,
+<br>F. Migeon<img src="index_fichiers/img1.png" alt="$^{*}$" align="bottom" border="0" height="17" width="12">,
+<br>M. Pantel<img src="index_fichiers/img2.png" alt="$^{**}$" align="bottom" border="0" height="17" width="19">
+<br><br>
+<br>
+<br>
+<br>
+<br>
+<br>
+Institut de Recherche en Informatique de Toulouse
+<br></b></b></strong><p>
+This document was generated using the
+<a href="http://www.latex2html.org/"><strong>LaTeX</strong>2<tt>HTML</tt></a> translator Version 2002 (1.62)
+</p><p>
+Copyright © 1993, 1994, 1995, 1996,
+<a href="http://cbl.leeds.ac.uk/nikos/personal.html">Nikos Drakos</a>, 
+Computer Based Learning Unit, University of Leeds.
+<br>Copyright © 1997, 1998, 1999,
+<a href="http://www.maths.mq.edu.au/%7Eross/">Ross Moore</a>, 
+Mathematics Department, Macquarie University, Sydney.
+</p><p>
+The command line arguments were: <br>
+ <strong>latex2html</strong> <tt>-address '<a href="mailto:javact@irit.fr"> javact@irit.fr </a>' -split 0 -local_icons -dir tutoriel_0 -mkdir -title 'JavAct v0.5.0' tutoriel.tex</tt>
+</p><p>
+The translation was initiated by Sebastien LERICHE on 2004-02-16<br></p><hr><h4>Notes</h4>
+<dl>
+<dt><a name="foot207">... Mobiles</a><a href="http://www.irit.fr/recherches/ISPR/IAM/tutoriel_0/tutoriel.html#tex2html1"><sup>1</sup></a></dt>
+<dd>http://www.irit.fr/recherches/ISPR/IAM/
+
+</dd>
+<dt><a name="foot222">... ouverte</a><a href="http://www.irit.fr/recherches/ISPR/IAM/tutoriel_0/tutoriel.html#tex2html2"><sup>2</sup></a></dt>
+<dd>Les aspects concernant l'adaptation et l'ouverture de l'implémentation [<a href="http://www.irit.fr/recherches/ISPR/IAM/tutoriel_0/tutoriel.html#la04">LA04</a>] ne sont pas décrits dans ce document
+
+</dd>
+<dt><a name="foot211">... Invocation</a><a href="http://www.irit.fr/recherches/ISPR/IAM/tutoriel_0/tutoriel.html#tex2html3"><sup>3</sup></a></dt>
+<dd>http://java.sun.com/products/jdk/rmi
+
+</dd>
+<dt><a name="foot217">... 1.4</a><a href="http://www.irit.fr/recherches/ISPR/IAM/tutoriel_0/tutoriel.html#tex2html4"><sup>4</sup></a></dt>
+<dd>http://java.sun.com/j2se/
+
+</dd>
+<dt><a name="foot445">... installé</a><a href="http://www.irit.fr/recherches/ISPR/IAM/tutoriel_0/tutoriel.html#tex2html5"><sup>5</sup></a></dt>
+<dd>Pour vérifier votre version : <tt>java -version</tt> renvoie des informations sur l'environnement installé ; ensuite si la commande <tt>javac</tt>
+renvoie un message d'erreur vous disposez du JRE (exécution seulement)
+sinon vous avez le JSDK (compilation possible). Pour télécharger et
+installer Java : <tt>http://java.sun.com/j2se/</tt>
+
+</dd>
+<dt><a name="foot423">...JavAct\xspace </a><a href="http://www.irit.fr/recherches/ISPR/IAM/tutoriel_0/tutoriel.html#tex2html6"><sup>6</sup></a></dt>
+<dd>http://www.irit.fr/recherches/ISPR/IAM/JavAct.html
+
+</dd>
+<dt><a name="foot550">... Linux</a><a href="http://www.irit.fr/recherches/ISPR/IAM/tutoriel_0/tutoriel.html#tex2html7"><sup>7</sup></a></dt>
+<dd>Sous Linux/Unix si vous n'avez pas le répertoire courant (.) dans le <tt>path</tt>, il faudra préfixer les scripts par ./ pour pouvoir les exécuter : <tt>./javactvm</tt> .
+
+</dd>
+<dt><a name="foot551">... systèmes</a><a href="http://www.irit.fr/recherches/ISPR/IAM/tutoriel_0/tutoriel.html#tex2html8"><sup>8</sup></a></dt>
+<dd>Sur les systèmes Windows, le caractère de séparation des chemins sera simplement '/' au lieu de '<img src="index_fichiers/img8.png" alt="$\backslash$" align="middle" border="0" height="34" width="13">' : 
+<br><tt>javactvm d:<img src="index_fichiers/img8.png" alt="$\backslash$" align="middle" border="0" height="34" width="13">JavActv050<img src="index_fichiers/img8.png" alt="$\backslash$" align="middle" border="0" height="34" width="13">places.txt</tt>.
+
+</dd>
+<dt><a name="foot552">... places</a><a href="http://www.irit.fr/recherches/ISPR/IAM/tutoriel_0/tutoriel.html#tex2html9"><sup>9</sup></a></dt>
+<dd>Machine virtuelle java exécutant une instance de la classe <tt>javact.net.rmi.Creator</tt>
+
+</dd>
+<dt><a name="foot508">... RMI</a><a href="http://www.irit.fr/recherches/ISPR/IAM/tutoriel_0/tutoriel.html#tex2html10"><sup>10</sup></a></dt>
+<dd>http://java.sun.com/j2se/1.4.2/docs/guide/rmi/faq.html#domain
+
+</dd>
+<dt><a name="foot519">... récupérer</a><a href="http://www.irit.fr/recherches/ISPR/IAM/tutoriel_0/tutoriel.html#tex2html11"><sup>11</sup></a></dt>
+<dd>http://java.sun.com/j2se/1.4.2/docs/guide/rmi/codebase.html
+
+</dd>
+<dt><a name="foot746">... différents</a><a href="http://www.irit.fr/recherches/ISPR/IAM/tutoriel_0/tutoriel.html#tex2html13"><sup>12</sup></a></dt>
+<dd>Cela a pour conséquence que les types tableaux ne sont pas acceptés
+comme types de retour : leurs noms contiennent des crochets («&nbsp;<tt>[</tt>&nbsp;»)
+qui ne sont pas des caractères autorisés dans les noms de variables. Ce
+problème sera résolu dans une version ultérieure de J<small>AV</small>A<small>CT</small>.
+
+</dd>
+<dt><a name="foot748">...SendCt.STD.send()</a><a href="http://www.irit.fr/recherches/ISPR/IAM/tutoriel_0/tutoriel.html#tex2html15"><sup>13</sup></a></dt>
+<dd>Il faut noter que les méthodes <tt>create()</tt> et <tt>send()</tt> ne doivent théoriquement être appelées que par des objets acteurs, précisément par leurs comportements. Les objets statiques <tt>CreateCt.STD</tt> et <tt>SendCt.STD</tt> permettent de créér des acteurs ou de leur envoyer des messages en dehors des comportements d'acteur, par exemple dans le <tt>main</tt>, et doivent être réservés à cela.
+
+</dd>
+<dt><a name="foot881">... pleine</a><a href="http://www.irit.fr/recherches/ISPR/IAM/tutoriel_0/tutoriel.html#tex2html16"><sup>14</sup></a></dt>
+<dd>A partir d'ici, nous omettons de donner les lignes d'<tt>import</tt>
+
+</dd>
+<dt><a name="foot942">... Gries</a><a href="http://www.irit.fr/recherches/ISPR/IAM/tutoriel_0/tutoriel.html#tex2html17"><sup>15</sup></a></dt>
+<dd>dans : C.A.R. H<small>OARE</small>, Communicating Sequential Processes, <i>Communications of the ACM</i> 21(8), 1978, pp. 666-677
+
+</dd>
+<dt><a name="foot943">...become</a><a href="http://www.irit.fr/recherches/ISPR/IAM/tutoriel_0/tutoriel.html#tex2html18"><sup>16</sup></a></dt>
+<dd>Ne pas coder de changement de comportement équivaut à exprimer plus simplement un <tt>become</tt> sur soi-même
+
+</dd>
+<dt><a name="foot920">... croissant</a><a href="http://www.irit.fr/recherches/ISPR/IAM/tutoriel_0/tutoriel.html#tex2html19"><sup>17</sup></a></dt>
+<dd>Cet algorithme nécessite que l'ordre d'envoi des messages soit
+préservé à la réception, ce que nous appelons propriété de régularité
+de la communication. Ceci assure que le premier nombre non multiple
+traité par l'acteur est bien un nombre premier. Cette propriété de
+régularité ne fait pas partie du modèle d'acteur. Cependant,
+l'implantation de JavAct à partir de RMI, lui-même basé sur TCP/IP
+garantit, de fait, cette propriété. Ceci permet d'avoir un code des
+comportements plus simples, dans lesquels on ne se préoccupe pas de
+l'ordre des messages reçus.
+</dd>
+<dt><a name="foot1078">... visite</a><a href="http://www.irit.fr/recherches/ISPR/IAM/tutoriel_0/tutoriel.html#tex2html22"><sup>18</sup></a></dt>
+<dd>Pour une étude plus approfondie concernant les agents mobiles de recherche d'information, on pourra se reporter à [<a href="http://www.irit.fr/recherches/ISPR/IAM/tutoriel_0/tutoriel.html#alp03">ALP03</a>]
+
+</dd>
+<dt><a name="foot1026">... suivant</a><a href="http://www.irit.fr/recherches/ISPR/IAM/tutoriel_0/tutoriel.html#tex2html23"><sup>19</sup></a></dt>
+<dd>Ainsi liée au changement de comportement, l'introduction de la
+mobilité ne réduit pas l'expressivité et le niveau abstraction du
+support de programmation : la mobilité n'impose pas le développement de
+code supplémentaire, et par conséquent, on contourne les inconvénients
+de la mobilité faible de Java
+</dd>
+<dt><a name="foot1079">... réseau</a><a href="http://www.irit.fr/recherches/ISPR/IAM/tutoriel_0/tutoriel.html#tex2html24"><sup>20</sup></a></dt>
+<dd>L'interface <tt>javact.util.StandAlone</tt> contribue grandement à
+l'expressivité de la mobilité car elle permet d'éviter au programmeur
+une gestion artificielle des messages en attente. Ajouté à l'expression
+naturelle de la mobilité liée au changement de comportement, ceci
+permet de contourner les difficultés dues à la mobilité faible de Java,
+c'est-à-dire à l'impossibilité de capturer un l'état d'exécution d'un
+agent
+</dd>
+</dl><hr>
+<!--Navigation Panel-->
+<img alt="next_inactive" src="index_fichiers/nx_grp_g.png" align="bottom" border="0" height="24" width="81"> 
+<img alt="up" src="index_fichiers/up_g.png" align="bottom" border="0" height="24" width="26"> 
+<img alt="previous" src="index_fichiers/prev_g.png" align="bottom" border="0" height="24" width="63">   
+<br>
+<!--End of Navigation Panel-->
+<address>
+<a href="mailto:javact@irit.fr"> javact@irit.fr </a>
+</address>
+</body></html>

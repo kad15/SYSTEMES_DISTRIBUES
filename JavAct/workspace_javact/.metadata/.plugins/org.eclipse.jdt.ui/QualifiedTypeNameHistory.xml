@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<qualifiedTypeNameHistroy>
+<fullyQualifiedTypeName name="java.net.BindException"/>
+<fullyQualifiedTypeName name="java.rmi.server.ExportException"/>
+<fullyQualifiedTypeName name="fr.enac.sita.tp2.asteroide.console.ConsoleJavaBoy"/>
+<fullyQualifiedTypeName name="fr.enac.sita.tp2.asteroide.jeu.IJoueur"/>
+<fullyQualifiedTypeName name="fr.enac.sita.tp2.asteroide.jeu.De"/>
+<fullyQualifiedTypeName name="org.javact.util.BehaviorProfile"/>
+<fullyQualifiedTypeName name="org.javact.net.rmi.CreateCt"/>
+<fullyQualifiedTypeName name="org.javact.net.rmi.SendCt"/>
+<fullyQualifiedTypeName name="JAMdoIt"/>
+<fullyQualifiedTypeName name="JavActProbe"/>
+<fullyQualifiedTypeName name="java.util.ArrayList"/>
+<fullyQualifiedTypeName name="org.javact.util.ActorProfile"/>
+<fullyQualifiedTypeName name="org.javact.local.CreateCt"/>
+<fullyQualifiedTypeName name="org.javact.local.SendCt"/>
+<fullyQualifiedTypeName name="JAMhello"/>
+<fullyQualifiedTypeName name="org.javact.util.StandAlone"/>
+</qualifiedTypeNameHistroy>

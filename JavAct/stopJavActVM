@@ -1,0 +1,16 @@
+#!/bin/sh
+
+if [ -n "$1" ]
+then
+	PSID=`ps -eo "%p %a" |grep javact.jar |grep $1 |grep -v grep | cut -c1-6`
+else
+	PSID=`ps -eo "%p %a" |grep javact.jar |grep -v grep | cut -c1-6`
+fi
+
+if [ -n "$PSID" ]
+then
+	echo "Fermeture de JavAct !"	
+	kill $PSID
+else
+	echo "Pas de JVM JavAct sur cette machine et sur le port $1 !"
+fi

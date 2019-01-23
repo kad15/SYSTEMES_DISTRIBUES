@@ -1,0 +1,17 @@
+#!/bin/bash
+
+CMD="~lerichse/stopJavActVM $1"
+ROOM=d1-205
+
+for ((i = 1; i < 10; i++))
+do
+	echo "Fermeture de JavAct sur $ROOM-0$i..."
+	ssh $ROOM-0$i $CMD &
+done 
+
+for ((i = 10; i <= 22; i++))
+do
+	echo "Fermeture de JavAct sur $ROOM-1$i..."
+	ssh $ROOM-$i $CMD &
+done 
+
