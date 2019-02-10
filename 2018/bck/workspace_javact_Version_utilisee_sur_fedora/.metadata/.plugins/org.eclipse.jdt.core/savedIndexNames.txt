@@ -1,0 +1,20 @@
+INDEX VERSION 1.130+/home/risky/projets/workspace_javact/.metadata/.plugins/org.eclipse.jdt.core
+864667877.index
+1629600552.index
+2821796187.index
+3499234300.index
+1161799949.index
+418585648.index
+3598398840.index
+2350231067.index
+3485561325.index
+830556479.index
+305372395.index
+222902543.index
+39737046.index
+521373455.index
+3191156997.index
+236483642.index
+3936914869.index
+1533782415.index
+2242263704.index

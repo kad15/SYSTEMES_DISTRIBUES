@@ -1,0 +1,14 @@
+#!/bin/sh
+
+#for ((i = 1; i < 10; i++))
+#do
+#	echo "Démarrage sur b313-0$i..."
+#	ssh b313-0$i "export DISPLAY=:0.0 ; cd DemoB313 ; java -jar lib/javact.jar &" &
+#done 
+#echo "Démarrage sur b313-10..."
+#ssh b313-10 "export DISPLAY=:0.0 ; cd DemoB313 ; java -jar lib/javact.jar &" &
+
+#IP=`/sbin/ifconfig |grep "inet adr:"|grep -v "127.0.0.1"|grep -v "192." |cut -f2 -d':' |tr -d " Bcast"`
+
+cd ~lerichse
+java -Djava.rmi.server.useCodebaseOnly=false -Djava.rmi.server.hostname=`hostname -I` -jar javact.jar $1 

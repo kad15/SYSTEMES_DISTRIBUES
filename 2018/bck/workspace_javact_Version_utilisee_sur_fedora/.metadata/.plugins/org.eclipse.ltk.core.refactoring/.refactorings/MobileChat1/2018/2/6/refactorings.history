@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Copy 2 elements to &apos;MobileChat&apos;&#x0A;- Original project: &apos;MobileChat1&apos;&#x0A;- Destination element: &apos;MobileChat&apos;&#x0A;- Original elements:&#x0A;     MobileChat.java&#x0A;     MobileChatSwing.java" description="Copy compilation units" destination="=MobileChat" element1="/&lt;{MobileChat.java" element2="/&lt;{MobileChatSwing.java" files="0" flags="589830" folders="0" id="org.eclipse.jdt.ui.copy" policy="org.eclipse.jdt.ui.copyResources" stamp="1517940373894" units="2" version="1.0"/>
+</session>

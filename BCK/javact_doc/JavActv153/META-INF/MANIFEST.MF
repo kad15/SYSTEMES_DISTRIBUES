@@ -1,0 +1,5 @@
+Manifest-Version: 1.0
+main-class: InstallJavAct
+Implementation-Title: JavAct
+Implementation-Version: 1.5.3
+Implementation-Vendor: SMAC Team - JavAct Project / IRIT-UPS

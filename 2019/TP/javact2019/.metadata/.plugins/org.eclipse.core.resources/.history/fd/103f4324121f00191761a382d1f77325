@@ -1,0 +1,4 @@
+import org.javact.util.BehaviorProfile;
+public interface C2 {
+
+}

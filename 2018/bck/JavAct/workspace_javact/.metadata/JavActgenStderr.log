@@ -1,0 +1,3 @@
+Parse error: interface Plop inherits behavior profiles, so it cannot itself declare messages.
+WARNING: interface Recherche should not extend the org.javact.util.BehaviorProfile interface.
+Parse error: org.javact.util.StandAlone probably is a behavior profile, however it does not extend org.javact.util.BehaviorProfile

@@ -1,0 +1,4 @@
+
+public interface Test extends BehaviorProfile, ActorProf{
+  public void m();
+}

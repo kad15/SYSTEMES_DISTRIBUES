@@ -1,0 +1,6 @@
+Parse error: method become in interface Test: parameter is not a behavior profile
+Parse error: method become in interface Test: parameter is not a behavior profile
+WARNING: class AgentTourisk was not found. It is perhaps actually not an actor profile but you may have to check your classpath.
+Current classpath: /home/eleve/IENAC/beldjiab/Bureau/javact2019/Pi:/home/personnel/SINA/lerichse/eclipse/plugins/JavAct_1.2.4/lib/javact.jar
+WARNING: class AgentTourisk was not found. It is perhaps actually not an actor profile but you may have to check your classpath.
+Current classpath: /home/eleve/IENAC/beldjiab/Bureau/javact2019/Pi:/home/personnel/SINA/lerichse/eclipse/plugins/JavAct_1.2.4/lib/javact.jar

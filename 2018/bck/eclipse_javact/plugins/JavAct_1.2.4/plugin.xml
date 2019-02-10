@@ -1,0 +1,342 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+<plugin>
+
+   % create our perspectives
+	<extension 
+		point="org.eclipse.ui.perspectives">
+		<perspective
+        	class="org.javact.plugin.perspective.JavActPerspective"
+	        icon="icons/javact.gif"
+    	    id="org.javact.plugin.perspective.JavActPerspective"
+        	name="JavAct"> 
+		</perspective> 
+		<perspective
+	        class="org.javact.plugin.debug.perspective.JavActDebugPerspective"
+    	    icon="icons/javact.gif"
+        	id="org.javact.plugin.debug.perspective.JavActDebugPerspective"
+	        name="Debug JavAct"> 
+		</perspective> 
+  	</extension> 
+   
+	<extension 
+		point="org.eclipse.ui.perspectiveExtensions"> 
+		
+		%add shortcuts in our perspective
+    	<perspectiveExtension 
+           	targetID="org.javact.plugin.perspective.JavActPerspective">          	
+            <actionSet 
+            	id="org.javact.plugin.ActionSet">
+            </actionSet>
+            <showInPart
+            	id="org.eclipse.jdt.ui.PackageExplorer">
+            </showInPart>
+       		<perspectiveShortcut 
+         		id="org.javact.plugin.perspective.JavActPerspective">
+        	</perspectiveShortcut>
+        	<perspectiveShortcut
+         		id="org.javact.plugin.debug.perspective.JavActDebugPerspective">
+        	</perspectiveShortcut>
+        	<perspectiveShortcut
+         		id="org.eclipse.jdt.ui.JavaPerspective">
+        	</perspectiveShortcut>
+        	<perspectiveShortcut
+         		id="org.eclipse.debug.ui.DebugPerspective">
+        	</perspectiveShortcut>
+        	<perspectiveShortcut
+         		id="org.eclipse.jdt.ui.JavaBrowsingPerspective">
+        	</perspectiveShortcut>
+        	<viewShortcut
+            	id="org.eclipse.ant.ui.views.AntView">
+        	</viewShortcut>
+        </perspectiveExtension>
+        
+        %add shortcuts in our debug perspective
+    	<perspectiveExtension 
+           	targetID="org.javact.plugin.debug.perspective.JavActDebugPerspective">          	
+            <actionSet 
+            	id="org.javact.plugin.DebugActionSet">
+            </actionSet>
+       		<perspectiveShortcut 
+         		id="org.javact.plugin.perspective.JavActPerspective">
+        	</perspectiveShortcut>
+        	<perspectiveShortcut
+         		id="org.javact.plugin.debug.perspective.JavActDebugPerspective">
+        	</perspectiveShortcut>
+        	<perspectiveShortcut
+         		id="org.eclipse.jdt.ui.JavaPerspective">
+        	</perspectiveShortcut>
+        	<perspectiveShortcut
+         		id="org.eclipse.debug.ui.DebugPerspective">
+        	</perspectiveShortcut>
+        	<viewShortcut
+            	id="org.eclipse.ant.ui.views.AntView">
+        	</viewShortcut>
+        </perspectiveExtension>
+              
+		%add our perspective shortcut to the Java perspective
+		<perspectiveExtension
+        	targetID="org.eclipse.jdt.ui.JavaPerspective">
+        	<perspectiveShortcut
+        		id="org.javact.plugin.perspective.JavActPerspective">
+        	</perspectiveShortcut>
+		</perspectiveExtension>
+	</extension>
+
+	%create our wizard
+	<extension 
+		point="org.eclipse.ui.newWizards">
+		<category
+            name="JavAct"
+            id="JavAct">
+		</category>
+		<wizard
+        	category="JavAct"
+        	class="org.javact.plugin.wizards.NewProjectWizard"
+        	finalPerspective="org.javact.plugin.perspective.JavActPerspective"
+        	icon="icons/javact.gif"
+        	id="org.javact.plugin.wizards.NewProjectWizard"
+        	name="JavAct Project"
+        	project="true">
+        	<description>
+          		Create a JavAct project
+         	</description>
+		</wizard>
+	</extension>   
+	
+	%create action set for our perspective
+	<extension 
+		point="org.eclipse.ui.actionSets">
+		<actionSet
+        	label="JVM on the localhost"
+            visible="false"
+            id="org.javact.plugin.ActionSet">
+         	<menu
+            	label="JavAct"
+            	id="javactMenu">
+	        	<separator
+    	    		name="javactGroup">
+        		</separator>
+         	</menu>
+         	<action
+         		class="org.javact.plugin.actions.ActionDebug"
+		         enablesFor="1"
+		         style="push"
+        		 icon="icons/debug.gif"
+		         id="org.javact.plugin.actions.ActionDebug"		
+        		 label="Debug"
+		         menubarPath="javactMenu/javactGroup"		
+		         toolbarPath="javactGroup"
+		         tooltip="Debug">
+			</action>
+	        <action
+                class="org.javact.plugin.actions.ActionTestAllJVM"
+                enablesFor="1"
+                icon="icons/testjvm.gif"
+                id="org.javact.plugin.actions.ActionTestAllJVM"
+                label="Test the JVM of places.txt"
+                menubarPath="javactMenu/javactGroup"
+                tooltip="Test the JVM of places.txt">
+	        </action>
+	        <action
+                class="org.javact.plugin.actions.ActionKillJVMLocal"
+                enablesFor="1"
+                icon="icons/killjvm.gif"
+                id="org.javact.plugin.actions.JVMKill"
+                label="Kill JVM on the localhost"
+                menubarPath="javactMenu/javactGroup"
+                tooltip="Kill JVM on the localhost">
+	        </action>
+	        <action
+                class="org.javact.plugin.actions.ActionLaunchJVMLocal"
+                enablesFor="1"
+                style="pulldown"
+        		icon="icons/launchjvm.gif"
+                id="org.javact.plugin.actions.JVMLaunch"
+                label="Launch JVM on the localhost"
+                menubarPath="javactMenu/javactGroup"
+                toolbarPath="javactGroup"
+                tooltip="Launch JVM on the localhost">
+	        </action>
+	        <action
+                class="org.javact.plugin.actions.ActionConfigureJavActGen"
+                enablesFor="1"
+                icon="icons/javactgenconf.gif"
+                id="org.javact.plugin.actions.ConfigJavActGen"
+                label="Configure JavActGen..."
+                menubarPath="javactMenu/javactGroup"
+                tooltip="Configure JavActGen">
+	        </action>
+	        <action
+         		class="org.javact.plugin.actions.ActionJavActGen"
+		         enablesFor="1"
+		         style="pulldown"
+        		 icon="icons/javactgen.gif"
+		         id="org.javact.plugin.ActionJavActGen"		
+        		 label="JavActGen"
+		         menubarPath="javactMenu/javactGroup"		
+		         toolbarPath="javactGroup"
+		         tooltip="JavActGen">
+			</action>
+    	</actionSet>
+    </extension>
+	
+    %create action set for our debug perspective
+	<extension 
+		point="org.eclipse.ui.actionSets">
+		<actionSet
+        	label="Debug Actions"
+            visible="false"
+            id="org.javact.plugin.DebugActionSet">
+         	<menu
+            	label="JavAct Debug"
+            	id="javactDebugMenu">
+	        	<separator
+    	    		name="javactDebugGroup">
+        		</separator>
+         	</menu>
+         	<action
+                class="org.javact.plugin.debug.actions.MethodsToShowAction"
+                icon="icons/debug/methods.gif"
+                id="org.javact.plugin.debug.actions.MethodsToShowAction"
+                label="Choose Methods"
+                style="pulldown"
+                tooltip="Choose the visible methods"		
+		        toolbarPath="javactDebugMenu">
+	        </action>
+	        <action
+                class="org.javact.plugin.debug.actions.ParametersAction"
+                icon="icons/debug/parameters.gif"
+                id="org.javact.plugin.debug.actions.ParametersAction"
+                label="Choose Parameters"
+                style="pulldown"
+                tooltip="Choose the visible information"		
+		        toolbarPath="javactDebugMenu">
+	        </action>
+	        <action
+                class="org.javact.plugin.debug.actions.NumberEventAction"
+                icon="icons/debug/events.gif"
+                id="org.javact.plugin.debug.actions.NumberEventAction"
+                label="Number of Events by Step"
+		        style="pulldown"
+                tooltip="Choose the number of events by step"		
+		        toolbarPath="javactDebugMenu">
+	        </action>
+	        <action
+                class="org.javact.plugin.debug.actions.NextEventAction"
+                icon="icons/debug/next.gif"
+                id="org.javact.plugin.debug.actions.NextEventAction"
+                label="Next Step"
+                menubarPath="javactDebugMenu/javactDebugGroup"
+                tooltip="Next Step"		
+		        toolbarPath="javactDebugMenu">
+	        </action>
+	        <action
+               class="org.javact.plugin.debug.actions.PlayEventAction"
+               icon="icons/debug/play.gif"
+               id="org.javact.plugin.debug.actions.PlayEventAction"
+               label="Play"
+               menubarPath="javactDebugMenu/javactDebugGroup"
+               style="pulldown"
+               toolbarPath="javactDebugMenu"
+               tooltip="Play the Events">
+	        </action>
+    	</actionSet>
+    </extension>
+
+	% create our configuration type
+   	<extension 
+   		point="org.eclipse.debug.core.launchConfigurationTypes">
+      	<launchConfigurationType
+        	name="Javact Launcher"
+            delegate="org.javact.plugin.launch.JavActLaunchConfigurationDelegate"
+            modes="run, debug"
+            id="org.javact.plugin.launch.JavActLaunchConfiguration">
+      	</launchConfigurationType>
+   	</extension>
+   	<extension point="org.eclipse.debug.ui.launchConfigurationTabGroups">
+    	<launchConfigurationTabGroup
+        	type="org.javact.plugin.launch.JavActLaunchConfiguration"
+            class="org.javact.plugin.launch.JavActLaunchConfigurationTabGroup"
+            id="org.javact.plugin.launch.JavActLaunchConfigurationTabGroup">
+      	</launchConfigurationTabGroup>
+   	</extension>
+	 
+	%create views for our perspective
+   	<extension
+    	point="org.eclipse.ui.views">
+      	<category
+        	name="JavAct"
+            id="org.javact.plugin.views">
+      	</category>
+      	<category
+        	name="JavAct Debug"
+            id="org.javact.plugin.debug.views">
+      	</category>
+      	<view
+            name="JVM View"
+            icon="icons/javact.gif"
+            category="org.javact.plugin.views"
+            class="org.javact.plugin.views.JVMView"
+            id="org.javact.plugin.views.JVMView"
+            allowMultiple="true">
+      	</view>
+      	<view
+            name="Places View"
+            icon="icons/javact.gif"
+            category="org.javact.plugin.debug.views"
+            class="org.javact.plugin.debug.views.PlacesView"
+            id="org.javact.plugin.debug.views.PlacesView"
+            allowMultiple="false">
+      	</view>
+      	<view
+            name="Main View"
+            icon="icons/javact.gif"
+            category="org.javact.plugin.debug.views"
+            class="org.javact.plugin.debug.views.PrincipalView"
+            id="org.javact.plugin.debug.views.PrincipalView"
+            allowMultiple="false">
+      	</view>
+      	<view
+            name="Event View"
+            icon="icons/javact.gif"
+            category="org.javact.plugin.debug.views"
+            class="org.javact.plugin.debug.views.EventView"
+            id="org.javact.plugin.debug.views.EventView"
+            allowMultiple="true">
+      	</view>
+      	<view
+            name="Actor Event View"
+            icon="icons/javact.gif"
+            category="org.javact.plugin.debug.views"
+            class="org.javact.plugin.debug.views.ActorEventView"
+            id="org.javact.plugin.debug.views.ActorEventView"
+            allowMultiple="true">
+      	</view>
+      	<view
+            name="Place Event View"
+            icon="icons/javact.gif"
+            category="org.javact.plugin.debug.views"
+            class="org.javact.plugin.debug.views.PlaceEventView"
+            id="org.javact.plugin.debug.views.PlaceEventView"
+            allowMultiple="true">
+      	</view>
+   	</extension>
+   	<extension
+   		point="org.eclipse.debug.ui.launchConfigurationTypeImages">
+  		<launchConfigurationTypeImage
+     		id="org.javact.plugin.launch.JavActLaunchConfigurationTypeImage"
+     		configTypeID="org.javact.plugin.launch.JavActLaunchConfiguration"
+     		icon="icons/javact.gif">
+  		</launchConfigurationTypeImage>
+ 	</extension>
+   
+   	%plug the help of javact
+	<extension point="org.eclipse.help.toc">
+      <toc file="help/toc_main.xml" primary="true" />
+   	</extension>
+   	<extension point="org.eclipse.help.toc">
+       <toc file="help/mu.xml" />
+       <toc file="help/toc.xml" />
+   	</extension>
+</plugin>
